@@ -1,5 +1,5 @@
 ---
-// src/pages/about.astro
+
 import PageLayout from '~/layouts/PageLayout.astro';
 
 const metadata = {
@@ -9,15 +9,24 @@ const metadata = {
 const milestones = ['Founded 2002', 'Milestone change 2008', 'Major Launch 2010', 'Today'];
 
 const team = [
-  { name: 'Dawit Bekele', role: 'Creative Director' },
-  { name: 'Hana Tesfaye', role: 'Lead Game Developer' },
-  { name: 'Yohannes Alemu', role: 'Game Designer' },
-  { name: 'Samuel Girma', role: 'Narrative Designer' },
+  { name: 'Dawit Bekele', role: 'Creative Director', photo: '/images/team/dawit.jpg' },
+  { name: 'Hana Tesfaye', role: 'Lead Game Developer', photo: '/images/team/hana.jpg' },
+  { name: 'Yohannes Alemu', role: 'Game Designer', photo: '/images/team/yohannes.jpg' },
+  { name: 'Samuel Girma', role: 'Narrative Designer', photo: '/images/team/samuel.jpg' },
 ];
+
+function getInitials(name: string) {
+  return name
+    .split(' ')
+    .map((n) => n[0])
+    .join('')
+    .slice(0, 2)
+    .toUpperCase();
+}
 ---
 
 <PageLayout metadata={metadata}>
-  <!-- Hero -->
+  <div class="page-gradient">
   <section class="page-hero">
     <h1>About Us</h1>
   </section>
@@ -54,7 +63,14 @@ const team = [
       {
         team.map((member) => (
           <div class="team-card">
-            <div class="avatar" />
+            <div class="avatar">
+              {member.photo ? (
+                <img src={member.photo} alt={member.name} onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              ) : null}
+              <span class="avatar-fallback" style={member.photo ? 'display:none' : ''}>
+                {getInitials(member.name)}
+              </span>
+            </div>
             <h3>{member.name}</h3>
             <p class="role">{member.role}</p>
           </div>
@@ -96,6 +112,7 @@ As we grow, we aim to build a passionate community of players, creators, and par
     <h2>Let's get in touch?</h2>
     <a href="/contact" class="btne btn-light">Contact</a>
   </section>
+  </div>
 </PageLayout>
 
 <script>
@@ -113,9 +130,12 @@ As we grow, we aim to build a passionate community of players, creators, and par
 </script>
 
 <style>
+    .page-gradient {
+    background: var(--page-gradient);
+  }
+
    .page-hero {
     background-image: url('/aboutus.png');
-    /* background: linear-gradient(135deg, var(--brand-purple-dark), var(--brand-purple-darker)); */
     height: 300px;
 
       color: #fff;
@@ -198,12 +218,34 @@ As we grow, we aim to build a passionate community of players, creators, and par
     text-align: center;
   }
   .avatar {
+    position: relative;
     width: 80px;
     height: 80px;
     border-radius: 50%;
     background: var(--brand-purple-light);
     margin: 0 auto 0.75rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: box-shadow 0.15s ease;
+  }
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .avatar-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--brand-purple);
+    background: var(--brand-purple-light);
   }
   .team-card:hover .avatar {
     box-shadow: 0 0 0 4px var(--brand-purple-light), 0 0 20px rgba(124, 58, 237, 0.35);
@@ -268,7 +310,6 @@ As we grow, we aim to build a passionate community of players, creators, and par
   overflow: hidden;
 }
 
-/* Slightly soften the image without blurring the text */
 .contact-bar::before {
   content: "";
   position: absolute;
@@ -279,7 +320,6 @@ As we grow, we aim to build a passionate community of players, creators, and par
   z-index: 0;
 }
 
-/* Dark cinematic overlay */
 .contact-bar::after {
   content: "";
   position: absolute;
@@ -346,8 +386,6 @@ As we grow, we aim to build a passionate community of players, creators, and par
   box-shadow: 0 12px 30px rgba(121, 9, 150, 0.35);
 }
 
-   
-  
   @media (max-width: 768px) {
     .team-grid {
       grid-template-columns: 1fr 1fr;

@@ -19,7 +19,7 @@ const metadata = {
 
 <PageLayout metadata={metadata}>
   <section class="section">
-     <a href="/products" class="back-link">← Back to Products</a>
+    <a href="/products" class="back-link">← Back to Products</a>
     <div class="title-row">
       <h1>{product.title}</h1>
       <div class="badges">
@@ -32,11 +32,7 @@ const metadata = {
     {
       product.trailerUrl ? (
         <div class="trailer">
-          <iframe
-            src={product.trailerUrl}
-            title={`${product.title} trailer`}
-            allowfullscreen
-          />
+          <iframe src={product.trailerUrl} title={`${product.title} trailer`} allowfullscreen />
         </div>
       ) : !product.images?.length ? (
         <div class="trailer">
@@ -63,10 +59,17 @@ const metadata = {
       )
     }
 
-    <div class="action-row">
-      <a href={product.purchaseLink || '#'} class="btn btn-primary btn-block">Buy / Wishlist</a>
-     
+    <div class="price-row">
+      <span class="price">{product.price || 'Free'}</span>
     </div>
+
+    <div class="action-row" data-slug={product.slug}>
+      <button id="buyBtn" class="btn btn-primary btn-block">Buy Now</button>
+      <button id="wishlistBtn" class="btn btn-outline btn-block">
+        <span class="heart">&#9825;</span> <span id="wishlistLabel">Add to Wishlist</span>
+      </button>
+    </div>
+    <p class="demo-note">This is a demo store — no real payment is processed.</p>
 
     <div class="main-col">
       <h2>About</h2>
@@ -106,7 +109,7 @@ const metadata = {
 
   .title-row {
     margin-bottom: 1.5rem;
-    margin-top:15px;
+    margin-top: 15px;
   }
   .title-row h1 {
     font-size: 2rem;
@@ -126,15 +129,30 @@ const metadata = {
     border-radius: 999px;
   }
 
+  .price-row {
+    margin-top: 1.5rem;
+  }
+  .price {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+
   .action-row {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    margin: 1.5rem 0 2.5rem;
+    gap: 1rem;
+    margin: 1rem 0 0.5rem;
+    flex-wrap: wrap;
   }
   .action-row .btn-block {
     flex: 0 0 auto;
-    min-width: 220px;
+    min-width: 200px;
+  }
+  .demo-note {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    margin-bottom: 2rem;
   }
 
   .trailer {
@@ -160,7 +178,7 @@ const metadata = {
 
   .gallery {
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
   .gallery-track {
     display: flex;
@@ -236,12 +254,18 @@ const metadata = {
   }
 
   .btn-block {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
     text-align: center;
-    padding: 0.85rem;
+    padding: 0.85rem 1.5rem;
     border-radius: 999px;
     font-weight: 600;
     font-size: 0.95rem;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
   }
   .btn-primary {
     background: var(--brand-purple);
@@ -251,12 +275,35 @@ const metadata = {
   .btn-primary:hover {
     background: var(--brand-purple-dark);
   }
+  .btn-outline {
+    background: transparent;
+    color: var(--text-dark);
+    border: 1px solid var(--border-color);
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .btn-outline:hover {
+    border-color: var(--brand-purple);
+    color: var(--brand-purple);
+  }
+  .btn-outline.active {
+    border-color: var(--brand-purple);
+    color: var(--brand-purple);
+  }
+  .btn-outline.active .heart {
+    color: var(--brand-purple);
+  }
+  .heart {
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+
   .back-link {
     color: var(--text-muted);
     font-size: 0.85rem;
     text-align: center;
     margin-bottom: 30px;
     margin-top: 0px;
+    display: inline-block;
   }
   .back-link:hover {
     color: var(--brand-purple);
@@ -286,4 +333,47 @@ const metadata = {
 
   prevBtn?.addEventListener('click', () => scrollByOneItem(-1));
   nextBtn?.addEventListener('click', () => scrollByOneItem(1));
+
+  // Demo cart / wishlist logic — stored in localStorage, no real backend
+  const actionRow = document.querySelector('.action-row') as HTMLElement;
+  const slug = actionRow?.dataset.slug || '';
+  const buyBtn = document.getElementById('buyBtn');
+  const wishlistBtn = document.getElementById('wishlistBtn');
+  const wishlistLabel = document.getElementById('wishlistLabel');
+
+  function getList(key: string): string[] {
+    return JSON.parse(localStorage.getItem(key) || '[]');
+  }
+  function setList(key: string, list: string[]) {
+    localStorage.setItem(key, JSON.stringify(list));
+    window.dispatchEvent(new Event('storage'));
+  }
+
+  // Buy Now → add to cart, go to /cart
+  buyBtn?.addEventListener('click', () => {
+    const cart = getList('demo_cart');
+    if (!cart.includes(slug)) cart.push(slug);
+    setList('demo_cart', cart);
+    window.location.href = '/cart';
+  });
+
+  // Wishlist toggle
+  function refreshWishlistButton() {
+    const wishlist = getList('demo_wishlist');
+    const isWishlisted = wishlist.includes(slug);
+    wishlistBtn?.classList.toggle('active', isWishlisted);
+    if (wishlistLabel) wishlistLabel.textContent = isWishlisted ? 'Wishlisted' : 'Add to Wishlist';
+  }
+  refreshWishlistButton();
+
+  wishlistBtn?.addEventListener('click', () => {
+    let wishlist = getList('demo_wishlist');
+    if (wishlist.includes(slug)) {
+      wishlist = wishlist.filter((s) => s !== slug);
+    } else {
+      wishlist.push(slug);
+    }
+    setList('demo_wishlist', wishlist);
+    refreshWishlistButton();
+  });
 </script>

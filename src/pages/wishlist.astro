@@ -1,0 +1,220 @@
+---
+
+import PageLayout from '~/layouts/PageLayout.astro';
+import { products } from '~/data/products';
+
+const metadata = {
+  title: 'Wishlist — ~DemoGames',
+};
+---
+
+<PageLayout metadata={metadata}>
+  <section class="page-hero">
+    <h1>Your Wishlist</h1>
+  </section>
+
+  <section class="section">
+    <div id="wishlistEmpty" class="empty-state" hidden>
+      <div class="empty-icon">🤍</div>
+      <h2>Your wishlist is empty</h2>
+      <p>Save games you're interested in to find them here later.</p>
+      <a href="/products" class="btn btn-primary">Browse Games</a>
+    </div>
+
+    <div id="wishlistGrid" class="wishlist-grid"></div>
+  </section>
+</PageLayout>
+
+<script define:vars={{ products }}>
+  const wishlistEmpty = document.getElementById('wishlistEmpty');
+  const wishlistGrid = document.getElementById('wishlistGrid');
+
+  function getWishlist() {
+    return JSON.parse(localStorage.getItem('demo_wishlist') || '[]');
+  }
+  function setWishlist(list) {
+    localStorage.setItem('demo_wishlist', JSON.stringify(list));
+    window.dispatchEvent(new Event('storage'));
+  }
+  function getCart() {
+    return JSON.parse(localStorage.getItem('demo_cart') || '[]');
+  }
+  function setCart(list) {
+    localStorage.setItem('demo_cart', JSON.stringify(list));
+    window.dispatchEvent(new Event('storage'));
+  }
+
+  function render() {
+    const wishlist = getWishlist();
+    const items = wishlist.map((slug) => products.find((p) => p.slug === slug)).filter(Boolean);
+
+    if (items.length === 0) {
+      wishlistEmpty.hidden = false;
+      wishlistGrid.innerHTML = '';
+      return;
+    }
+    wishlistEmpty.hidden = true;
+
+    wishlistGrid.innerHTML = items
+      .map(
+        (p) => `
+      <div class="wishlist-card" data-slug="${p.slug}">
+        <a href="/products/${p.slug}" class="wishlist-thumb">
+          <img src="${p.images?.[0] || ''}" alt="${p.title}" />
+          <button class="remove-heart" data-slug="${p.slug}" aria-label="Remove from wishlist">&#9829;</button>
+        </a>
+        <div class="wishlist-info">
+          <h3>${p.title}</h3>
+          <span class="price">${p.price || 'Free'}</span>
+        </div>
+        <button class="btn btn-primary move-to-cart" data-slug="${p.slug}">Add to Cart</button>
+      </div>
+    `,
+      )
+      .join('');
+
+    wishlistGrid.querySelectorAll('.remove-heart').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        setWishlist(getWishlist().filter((s) => s !== btn.dataset.slug));
+        render();
+      });
+    });
+
+    wishlistGrid.querySelectorAll('.move-to-cart').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const slug = btn.dataset.slug;
+        const cart = getCart();
+        if (!cart.includes(slug)) cart.push(slug);
+        setCart(cart);
+        window.location.href = '/cart';
+      });
+    });
+  }
+
+  render();
+</script>
+
+<style>
+  .page-hero {
+    background: rgb(60, 3, 94);
+    color: #fff;
+    text-align: center;
+    padding: 3.5rem 1.5rem;
+  }
+  .page-hero h1 {
+    color: #fff;
+    font-size: 2rem;
+  }
+
+  .section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 4rem 1rem;
+  }
+  .empty-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  .empty-state h2 {
+    margin-bottom: 0.5rem;
+  }
+  .empty-state p {
+    color: var(--text-muted);
+    margin-bottom: 1.75rem;
+  }
+
+  .wishlist-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+  .wishlist-card {
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 0.85rem;
+    background: var(--surface-alt);
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .wishlist-card:hover {
+    border-color: var(--brand-purple);
+    transform: translateY(-3px);
+  }
+  .wishlist-thumb {
+    position: relative;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+  .wishlist-thumb img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+  }
+  .remove-heart {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.6);
+    color: var(--brand-purple);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .remove-heart:hover {
+    background: rgba(0, 0, 0, 0.85);
+    transform: scale(1.08);
+  }
+  .wishlist-info {
+    margin-bottom: 0.85rem;
+  }
+  .wishlist-info h3 {
+    font-size: 0.92rem;
+    margin-bottom: 0.25rem;
+  }
+  .price {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+  .btn-primary {
+    display: block;
+    width: 100%;
+    background: var(--brand-purple);
+    color: #000000;
+    border: 1px solid var(--brand-purple);
+    padding: 0.9rem;
+    border-radius: 999px;
+    font-weight: 600px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .btn-primary:hover {
+    background: var(--brand-purple-dark);
+  }
+
+  @media (max-width: 900px) {
+    .wishlist-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 480px) {
+    .wishlist-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

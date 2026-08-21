@@ -1,0 +1,128 @@
+---
+
+import PageLayout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Terms of Service — ~DemoGames',
+};
+
+const lastUpdated = 'August 2026';
+---
+
+<PageLayout metadata={metadata}>
+  <section class="page-hero">
+    <h1>Terms of Service</h1>
+    <p class="updated">Last updated: {lastUpdated}</p>
+  </section>
+
+  <section class="section">
+    <div class="legal-content">
+      <p class="intro">
+        By accessing or using this website, you agree to be bound by these Terms of Service. This
+        is a demo/portfolio project — the store, cart, and checkout features simulate a real
+        e-commerce flow but do not process real payments or deliver real products.
+      </p>
+
+      <h2>1. Use of This Site</h2>
+      <p>
+        This website and its content are provided for demonstration and portfolio purposes. You
+        may browse the site and use its demo features (such as the Cart and Wishlist) freely, but
+        no purchase made through this site is real or binding.
+      </p>
+
+      <h2>2. Demo Store Disclaimer</h2>
+      <p>
+        The "Buy Now," "Add to Wishlist," and "Checkout" features on this site are simulated. No
+        real payment is collected, no order is fulfilled, and no game or product is delivered.
+        Prices shown are for demonstration purposes only.
+      </p>
+
+      <h2>3. Intellectual Property</h2>
+      <p>
+        Unless otherwise stated, all content on this site — including text, images, and game
+        artwork — is used for demonstration purposes as part of a portfolio project and remains
+        the property of its respective owner.
+      </p>
+
+      <h2>4. User Conduct</h2>
+      <p>
+        You agree not to misuse this site, attempt to disrupt its functionality, or use it for any
+        unlawful purpose.
+      </p>
+
+      <h2>5. Limitation of Liability</h2>
+      <p>
+        This site is provided "as is" without warranties of any kind. We are not liable for any
+        damages arising from your use of this site.
+      </p>
+
+      <h2>6. Changes to These Terms</h2>
+      <p>
+        We may update these Terms of Service from time to time. Continued use of the site after
+        changes are posted constitutes acceptance of the updated terms.
+      </p>
+
+      <h2>7. Contact Us</h2>
+      <p>
+        If you have questions about these Terms, please reach out via the
+        <a href="/contact">Contact page</a>.
+      </p>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--brand-purple-dark), var(--brand-purple-darker));
+    color: #fff;
+    text-align: center;
+    padding: 3.5rem 1.5rem;
+  }
+  .page-hero h1 {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  .updated {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+  }
+
+  .section {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+  }
+
+  .legal-content .intro {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .legal-content h2 {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin: 2rem 0 0.75rem;
+  }
+  .legal-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .legal-content p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.75;
+  }
+
+  .legal-content a {
+    color: var(--brand-purple);
+    text-decoration: underline;
+  }
+  .legal-content a:hover {
+    color: var(--brand-purple-dark);
+  }
+</style>
