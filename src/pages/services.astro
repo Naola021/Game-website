@@ -1,9 +1,9 @@
 ---
-// src/pages/services.astro
+
 import PageLayout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Services — [Your Gaming Company]',
+  title: 'Services — ~DemoGames',
 };
 
 const services = [
@@ -27,6 +27,7 @@ const faqs = [
 ---
 
 <PageLayout metadata={metadata}>
+  <div class="page-gradient">
   <!-- Hero -->
   <section class="page-hero">
     <h1>Services</h1>
@@ -67,6 +68,7 @@ const faqs = [
       }
     </div>
   </section>
+  </div>
 </PageLayout>
 
 <script>
@@ -81,6 +83,10 @@ const faqs = [
 </script>
 
 <style>
+    .page-gradient {
+    background: var(--page-gradient);
+  }
+
   .page-hero {
     background-image: url('/serves.png');
     /* background: linear-gradient(135deg, var(--brand-purple-dark), var(--brand-purple-darker)); */
@@ -115,7 +121,7 @@ const faqs = [
     gap: 1.25rem;
   }
   .service-card {
-    border: 1px solid var(--border-color);
+   border: 1px solid rgb(60, 3, 94);
     border-radius: 10px;
     padding: 1.5rem;
     text-align: center;

@@ -2,11 +2,12 @@
 import PageLayout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Contact — [Your Gaming Company]',
+  title: 'Contact — DemoGames',
 };
 ---
 
 <PageLayout metadata={metadata}>
+  <div class="page-gradient">
   <!-- Hero -->
   <section class="page-hero">
     <h1>Contact</h1>
@@ -16,7 +17,8 @@ const metadata = {
     <div class="contact-grid">
 
       <!-- Contact Form -->
-      <form id="contactForm" class="contact-form" novalidate>
+    
+      <form id="contactForm" class="contact-form" novalidate data-endpoint="https://formspree.io/f/maewavdw" method="POST">
 
         <div class="field">
           <label for="name">Name</label>
@@ -42,97 +44,72 @@ const metadata = {
           <span class="error-msg">Please enter a message.</span>
         </div>
 
-        <button type="submit" class="btn btn-primary">Send</button>
-
-        <p id="successMsg" class="success-msg">
+        <button type="submit" id="submitBtn" class="btn btn-primary">Send</button>
+ <p id="successMsg" class="success-msg">
           Thanks — your message has been sent! We'll be in touch soon.
         </p>
-
+        <p id="errorMsg" class="error-msg-box">
+          Something went wrong sending your message — please try again, or email us directly.
+        </p>
       </form>
 
+       
 
       <!-- Contact Details -->
       <div class="contact-details">
-
         <h3>Get in Touch</h3>
+        <p><strong>Address:</strong><br />Addis Ababa, Ethiopia</p>
+        <p><strong>Email:</strong><br />contact@demogames.com</p>
+        <p><strong>Phone:</strong><br />+251 987 654 321</p>
 
-        <p>
-          <strong>Address:</strong><br />
-          Addis Ababa, Ethiopia
-        </p>
-
-        <p>
-          <strong>Email:</strong><br />
-          contact@demogames.com
-        </p>
-
-        <p>
-          <strong>Phone:</strong><br />
-          +251 987 654 321
-        </p>
-
-
-        <!-- Social Links -->
         <div class="social-icons">
-
-          <!-- Facebook -->
           <a href="https://facebook.com" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"/></svg>
           </a>
-
-          <!-- X -->
           <a href="https://x.com" aria-label="X">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.9L4.5 22H1.4l8.1-9.3L1 2h7l4.9 6.3L18.9 2Zm-1.2 18h1.9L6.4 4h-2l13.3 16Z"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.9L4.5 22H1.4l8.1-9.3L1 2h7l4.9 6.3L18.9 2Zm-1.2 18h1.9L6.4 4h-2l13.3 16Z"/></svg>
           </a>
-
-          <!-- LinkedIn -->
           <a href="https://linkedin.com" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.6h.1c.5-.9 1.8-1.9 3.7-1.9 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9-1.8 0-2 1.4-2 2.8V21h-4V9Z"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.6h.1c.5-.9 1.8-1.9 3.7-1.9 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9-1.8 0-2 1.4-2 2.8V21h-4V9Z"/></svg>
           </a>
-
-          <!-- Instagram -->
           <a href="https://instagram.com" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2c-2.7 0-3.1 0-4.1.1-1.1 0-1.8.2-2.4.5-.7.3-1.2.6-1.8 1.2-.6.6-.9 1.1-1.2 1.8-.3.6-.5 1.3-.5 2.4C2 9 2 9.4 2 12s0 3.1.1 4.1c0 1.1.2 1.8.5 2.4.3.7.6 1.2 1.2 1.8.6.6 1.1.9 1.8 1.2.6.3 1.3.5 2.4.5C9 22 9.4 22 12 22s3.1 0 4.1-.1c1.1 0 1.8-.2 2.4-.5.7-.3 1.2-.6 1.8-1.2.6-.6.9-1.1-1.2-1.8-.3-.6-.5-1.3-.5-2.4.1-1 .1-1.4.1-4.1s0-3.1-.1-4.1c0-1.1-.2-1.8-.5-2.4-.3-.7-.6-1.2-1.2-1.8-.6-.6-1.1-.9-1.8-1.2-.6-.3-1.3-.5-2.4-.5C15.1 2 14.7 2 12 2Zm0 1.8c2.6 0 2.9 0 4 .1.9 0 1.5.2 1.8.3.5.2.8.4 1.1.7.3.3.5.6.7 1.1.2.3.3.9.3 1.8.1 1.1.1 1.4.1 4s0 2.9-.1 4c0 .9-.2 1.5-.3 1.8-.2.5-.4.8-.7 1.1-.3.3-.6.5-1.1.7-.3.2-.9.3-1.8.3-1.1.1-1.4.1-4 .1s-2.9 0-4-.1c-.9 0-1.5-.2-1.8-.3-.5-.2-.8-.4-1.1-.7-.3-.3-.5-.6-.7-1.1-.2-.3-.3-.9-.3-1.8-.1-1.1-.1-1.4-.1-4s0-2.9.1-4c0-.9.2-1.5.3-1.8.2-.5.4-.8.7-1.1.3-.3.6-.5 1.1-.7.3-.2.9-.3 1.8-.3 1.1-.1 1.4-.1 4-.1Zm0 3.2a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Zm5.2-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-2.7 0-3.1 0-4.1.1-1.1 0-1.8.2-2.4.5-.7.3-1.2.6-1.8 1.2-.6.6-.9 1.1-1.2 1.8-.3.6-.5 1.3-.5 2.4C2 9 2 9.4 2 12s0 3.1.1 4.1c0 1.1.2 1.8.5 2.4.3.7.6 1.2 1.2 1.8.6.6 1.1.9 1.8 1.2.6.3 1.3.5 2.4.5C9 22 9.4 22 12 22s3.1 0 4.1-.1c1.1 0 1.8-.2 2.4-.5.7-.3 1.2-.6 1.8-1.2.6-.6.9-1.1 1.2-1.8.3-.6.5-1.3.5-2.4.1-1 .1-1.4.1-4.1s0-3.1-.1-4.1c0-1.1-.2-1.8-.5-2.4-.3-.7-.6-1.2-1.2-1.8-.6-.6-1.1-.9-1.8-1.2-.6-.3-1.3-.5-2.4-.5C15.1 2 14.7 2 12 2Zm0 1.8c2.6 0 2.9 0 4 .1.9 0 1.5.2 1.8.3.5.2.8.4 1.1.7.3.3.5.6.7 1.1.2.3.3.9.3 1.8.1 1.1.1 1.4.1 4s0 2.9-.1 4c0 .9-.2 1.5-.3 1.8-.2.5-.4.8-.7 1.1-.3.3-.6.5-1.1.7-.3.2-.9.3-1.8.3-1.1.1-1.4.1-4 .1s-2.9 0-4-.1c-.9 0-1.5-.2-1.8-.3-.5-.2-.8-.4-1.1-.7-.3-.3-.5-.6-.7-1.1-.2-.3-.3-.9-.3-1.8-.1-1.1-.1-1.4-.1-4s0-2.9.1-4c0-.9.2-1.5.3-1.8.2-.5.4-.8.7-1.1.3-.3.6-.5 1.1-.7.3-.2.9-.3 1.8-.3 1.1-.1 1.4-.1 4-.1Zm0 3.2a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Zm5.2-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg>
           </a>
-
         </div>
       </div>
+    </div>
 
-
-      <!-- Map -->
-      <div class="map-embed">
-        <span>[Embedded Google Map]</span>
-      </div>
-
+    <!-- Embedded Map -->
+    <div class="map-embed">
+      <iframe
+        src="https://www.google.com/maps?q=Addis+Ababa,+Ethiopia&output=embed"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Studio location map"
+      ></iframe>
     </div>
   </section>
+  </div>
 </PageLayout>
-
-
 <script>
   const form = document.getElementById('contactForm') as HTMLFormElement;
   const successMsg = document.getElementById('successMsg');
+  const errorMsg = document.getElementById('errorMsg');
+  const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
 
-  form?.addEventListener('submit', (e) => {
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     let valid = true;
 
     form.querySelectorAll('input, textarea').forEach((el) => {
-      const input = el as HTMLInputElement;
+      const input = el as HTMLInputElement | HTMLTextAreaElement;
       const field = input.closest('.field');
-
       const isEmpty = input.value.trim() === '';
-      const isEmail = input.type === 'email';
-
+      const isEmail = input instanceof HTMLInputElement && input.type === 'email';
       const emailInvalid =
         isEmail &&
         input.value.trim() !== '' &&
@@ -146,26 +123,71 @@ const metadata = {
       }
     });
 
-    if (valid) {
-      form.style.display = 'none';
-      successMsg?.classList.add('visible');
+    if (!valid) return;
+
+    errorMsg?.classList.remove('visible');
+    successMsg?.classList.remove('visible');
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    try {
+      const endpoint = form.dataset.endpoint;
+      const formData = new FormData(form);
+
+      const response = await fetch(endpoint as string, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        // Clear the form but keep it visible
+        form.querySelectorAll('input, textarea').forEach((el) => {
+          const input = el as HTMLInputElement | HTMLTextAreaElement;
+          input.value = '';
+          input.closest('.field')?.classList.remove('invalid');
+        });
+
+        // Show success message
+        successMsg?.classList.add('visible');
+
+        // Reset button
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send';
+      } else {
+        errorMsg?.classList.add('visible');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send';
+      }
+    } catch (err) {
+      errorMsg?.classList.add('visible');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send';
     }
   });
+
+  // Hide congratulations when user starts typing a new message
+  form?.querySelectorAll('input, textarea').forEach((input) => {
+    input.addEventListener('input', () => {
+      successMsg?.classList.remove('visible');
+    });
+  });
 </script>
-
-
 <style>
- .page-hero {
-    background-image: url('/contact.png');
-    /* background: linear-gradient(135deg, var(--brand-purple-dark), var(--brand-purple-darker)); */
-    height: 250px;
-
-      color: #fff;
-    padding: 6rem 1.5rem;
-    text-align: center;
-    
+    .page-gradient {
+    background: var(--page-gradient);
   }
 
+  .page-hero {
+    background-image: url('/contact.png');
+    height: 250px;
+    color: #fff;
+    padding: 6rem 1.5rem;
+    text-align: center;
+  }
   .page-hero h1 {
     color: #fff;
     font-size: 3rem;
@@ -190,11 +212,9 @@ const metadata = {
     border-radius: 10px;
     padding: 1.75rem;
   }
-
   .field {
     margin-bottom: 1.1rem;
   }
-
   .field label {
     display: block;
     font-size: 0.85rem;
@@ -202,7 +222,6 @@ const metadata = {
     margin-bottom: 0.35rem;
     color: var(--text-dark);
   }
-
   .field input,
   .field textarea {
     width: 100%;
@@ -213,25 +232,21 @@ const metadata = {
     font-family: inherit;
     box-sizing: border-box;
   }
-
   .field input:focus,
   .field textarea:focus {
     outline: none;
     border-color: var(--brand-purple);
   }
-
   .error-msg {
     display: none;
     color: #dc2626;
     font-size: 0.78rem;
     margin-top: 0.3rem;
   }
-
   .field.invalid input,
   .field.invalid textarea {
     border-color: #dc2626;
   }
-
   .field.invalid .error-msg {
     display: block;
   }
@@ -247,10 +262,12 @@ const metadata = {
     cursor: pointer;
     transition: background 0.15s ease, transform 0.15s ease;
   }
-
   .btn-primary:hover {
     background: var(--brand-purple-dark);
-    transform: translateY(-2px);
+  }
+  .btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
   }
 
   .success-msg {
@@ -260,8 +277,17 @@ const metadata = {
     font-size: 0.9rem;
     font-weight: 500;
   }
-
   .success-msg.visible {
+    display: block;
+  }
+  .error-msg-box {
+    display: none;
+    margin-top: 1rem;
+    color: #dc2626;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  .error-msg-box.visible {
     display: block;
   }
 
@@ -270,74 +296,56 @@ const metadata = {
     border-radius: 10px;
     padding: 1.75rem;
   }
-
   .contact-details h3 {
     margin-bottom: 1rem;
     font-size: 1.05rem;
   }
-
   .contact-details p {
     font-size: 0.85rem;
     color: var(--text-muted);
     margin-bottom: 1rem;
     line-height: 1.5;
   }
-
   .contact-details strong {
     color: var(--text-dark);
   }
 
-
-  /* Social Icons — same style as footer */
   .social-icons {
     display: flex;
     gap: 0.75rem;
     margin-top: 1.25rem;
   }
-
   .social-icons a {
     width: 34px;
     height: 34px;
     border-radius: 50%;
     border: 1px solid var(--border-color);
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     color: var(--text-muted);
     text-decoration: none;
-
-    transition:
-      color 0.15s ease,
-      border-color 0.15s ease,
-      transform 0.15s ease;
+    transition: color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
   }
-
   .social-icons svg {
     width: 16px;
     height: 16px;
   }
-
   .social-icons a:hover {
     color: var(--brand-purple);
     border-color: var(--brand-purple);
     transform: translateY(-2px);
   }
 
-
-  /* Map — unchanged */
   .map-embed {
     background: var(--brand-purple-light);
     border-radius: 10px;
-    height: 260px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-muted);
-    font-size: 0.9rem;
+    height: 300px;
+    overflow: hidden;
   }
-
+  .map-embed iframe {
+    display: block;
+  }
 
   @media (max-width: 768px) {
     .contact-grid {

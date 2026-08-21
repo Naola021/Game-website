@@ -1,5 +1,5 @@
 ---
-// src/pages/index.astro
+
 import PageLayout from '~/layouts/PageLayout.astro';
 import { products } from '~/data/products';
 import { projects } from '~/data/projects';
@@ -8,8 +8,12 @@ const metadata = {
   title: 'Demo Games — Crafting Worlds Worth Playing',
 };
 
-const featuredProducts = products.slice(0, 3);
-const featuredProjects = projects.slice(0, 3);
+const featuredProducts = products;
+const featuredProjects = projects;
+
+const heroBanners = products
+  .map((p) => p.images?.[0])
+  .filter((img): img is string => Boolean(img));
 
 const services = [
   { icon: '🎮', title: 'Game Development' },
@@ -20,161 +24,403 @@ const services = [
 ---
 
 <PageLayout metadata={metadata}>
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-content">
-      <!-- <h1>Crafting Worlds Worth Playing</h1> -->
-      <a href="/products" class="btns btn-primary">Play Now</a>
-    </div>
-  </section>
+  <div class="page-gradient">
+    <!-- Hero:  -->
+    <section class="hero" id="heroSection">
+      <div class="hero-bg hero-bg-a" id="heroBgA" style={`background-image:url('${heroBanners[0] || '/hero-bg.png'}')`}></div>
+      <div class="hero-bg hero-bg-b" id="heroBgB"></div>
+      <div class="hero-content">
+        <a href="/products" class="btns btn-primary">Buy Now</a>
+      </div>
+    </section>
 
-  <!-- Featured Products -->
-  <section class="section">
-    <h2 class="section-title">Featured Products</h2>
-    <div class="card-grid">
-      {
-        featuredProducts.map((p) => (
-          <a href={`/products/${p.slug}`} class="card">
-            <div class="card-thumb">
-              {p.images?.[0] ? (
-                <img src={p.images[0]} alt={p.title} />
-              ) : null}
-              <span class="card-overlay">Learn More</span>
-            </div>
-            <h3>{p.title}</h3>
-          </a>
-        ))
-      }
-    </div>
-  </section>
+    <!-- Featured Products -->
+    <section class="section section-full">
+      <h2 id="products" class="section-title">Featured Products</h2>
+      <div class="carousel-wrap">
+        <button class="carousel-arrow carousel-left" aria-label="Previous products">&#8249;</button>
+        <div class="carousel-viewport">
+          <div class="carousel-track">
+            {
+              featuredProducts.map((p) => (
+                <a href={`/products/${p.slug}`} class="card carousel-item">
+                  <div class="card-thumb">
+                    {p.images?.[0] ? <img src={p.images[0]} alt={p.title} /> : null}
+                    <span class="card-overlay">Learn More</span>
+                  </div>
+                  <h3>{p.title}</h3>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+        <button class="carousel-arrow carousel-right" aria-label="Next products">&#8250;</button>
+      </div>
+    </section>
 
-  <!-- Featured Projects -->
-  <section class="section">
-    <h2 class="section-title">Featured Projects</h2>
-    <div class="card-grid">
-      {
-        featuredProjects.map((p) => (
-          <a href={`/projects/${p.slug}`} class="card">
-            <div class="card-thumb">
-              {p.images?.[0] ? <img src={p.images[0]} alt={p.title} /> : null}
-              <span class="card-overlay">Learn More</span>
-            </div>
-            <h3>{p.title}</h3>
-          </a>
-        ))
-      }
-    </div>
-  </section>
+    <!-- Featured Projects -->
+    <section class="section section-full">
+      <h2 id="projects" class="section-title">Featured Projects</h2>
+      <div class="carousel-wrap">
+        <button class="carousel-arrow carousel-left" aria-label="Previous projects">&#8249;</button>
+        <div class="carousel-viewport">
+          <div class="carousel-track">
+            {
+              featuredProjects.map((p: any) => {
+                const cover = p.images?.[0] || p.image || '';
+                return (
+                  <a href={`/projects/${p.slug}`} class="card carousel-item">
+                    <div class="card-thumb">
+                      {cover ? <img src={cover} alt={p.title} /> : null}
+                      <span class="card-overlay">Learn More</span>
+                    </div>
+                    <h3>{p.title}</h3>
+                  </a>
+                );
+              })
+            }
+          </div>
+        </div>
+        <button class="carousel-arrow carousel-right" aria-label="Next projects">&#8250;</button>
+      </div>
+    </section>
 
-<!-- Services Overview -->
-<section class="section services-section">
-  <h2 class="section-title">Services Overview</h2>
+    <!-- Services Overview -->
+    <section class="section services-section">
+      <h2 class="section-title">Services Overview</h2>
+      <div class="services-row">
+        {
+          services.map((service) => (
+            <a href="/services" class="service-box">
+              <span class="service-glyph">{service.icon}</span>
+              <span class="service-title">{service.title}</span>
+            </a>
+          ))
+        }
+      </div>
+    </section>
 
-  <div class="services-row">
-    {
-      services.map((service) => (
-        <a href="/services" class="service-box">
-          <span class="service-glyph">{service.icon}</span>
-          <span class="service-title">{service.title}</span>
-        </a>
-      ))
-    }
+    <!-- Contact Bar -->
+    <section class="contact-bar">
+      <h2>Let's get in touch?</h2>
+      <a href="/contact" class="btne">Contact</a>
+    </section>
   </div>
-</section>
-  <!-- Contact Bar -->
-  <section class="contact-bar">
-    <h2>Let's get in touch?</h2>
-    <a href="/contact" class="btne">Contact</a>
-  </section>
 </PageLayout>
 
+<script define:vars={{ heroBanners }}>
+  // ---- Hero: smooth two-layer crossfade ----
+  if (heroBanners.length > 1) {
+    const bgA = document.getElementById('heroBgA');
+    const bgB = document.getElementById('heroBgB');
+    let index = 0;
+    let showingA = true;
+
+    setInterval(() => {
+      index = (index + 1) % heroBanners.length;
+      const nextLayer = showingA ? bgB : bgA;
+      const currentLayer = showingA ? bgA : bgB;
+
+      nextLayer.style.backgroundImage = `url('${heroBanners[index]}')`;
+      nextLayer.style.opacity = '1';
+      currentLayer.style.opacity = '0';
+
+      showingA = !showingA;
+    }, 5000);
+  }
+
+  // ---- Carousel: true infinite loop via clones + swipe support ----
+  function getVisibleCount() {
+    const w = window.innerWidth;
+    if (w <= 560) return 1;
+    if (w <= 900) return 2;
+    return 3;
+  }
+
+  function setupCarousel(wrap) {
+    const viewport = wrap.querySelector('.carousel-viewport');
+    const track = wrap.querySelector('.carousel-track');
+    const prevBtn = wrap.querySelector('.carousel-left');
+    const nextBtn = wrap.querySelector('.carousel-right');
+    if (!viewport || !track) return;
+
+    const GAP = 20;
+    const realItems = Array.from(track.children);
+    const realCount = realItems.length;
+
+    let visible = getVisibleCount();
+    let position = 0;
+    let itemWidth = 0;
+    let canLoop = false;
+
+    function setWidths() {
+      itemWidth = (viewport.clientWidth - GAP * (visible - 1)) / visible;
+      Array.from(track.children).forEach((el) => {
+        el.style.flex = `0 0 ${itemWidth}px`;
+      });
+    }
+
+    function jumpTo(newPosition) {
+      track.style.transition = 'none';
+      position = newPosition;
+      track.style.transform = `translateX(-${position * (itemWidth + GAP)}px)`;
+      void track.offsetHeight;
+      track.style.transition = '';
+    }
+
+    function rebuild() {
+      visible = getVisibleCount();
+      canLoop = realCount > visible;
+
+      track.innerHTML = '';
+
+      if (canLoop) {
+        const headClones = realItems.slice(-visible).map((el) => {
+          const c = el.cloneNode(true);
+          c.setAttribute('data-clone', 'true');
+          return c;
+        });
+        const tailClones = realItems.slice(0, visible).map((el) => {
+          const c = el.cloneNode(true);
+          c.setAttribute('data-clone', 'true');
+          return c;
+        });
+        [...headClones, ...realItems, ...tailClones].forEach((el) => track.appendChild(el));
+        setWidths();
+        jumpTo(visible);
+      } else {
+        realItems.forEach((el) => track.appendChild(el));
+        setWidths();
+        jumpTo(0);
+      }
+
+      const showArrows = canLoop;
+      if (prevBtn) prevBtn.style.visibility = showArrows ? 'visible' : 'hidden';
+      if (nextBtn) nextBtn.style.visibility = showArrows ? 'visible' : 'hidden';
+    }
+
+    function move(direction) {
+      if (!canLoop) return;
+      position += direction;
+      track.style.transform = `translateX(-${position * (itemWidth + GAP)}px)`;
+    }
+
+    track.addEventListener('transitionend', () => {
+      if (!canLoop) return;
+      if (position < visible) {
+        jumpTo(position + realCount);
+      } else if (position >= visible + realCount) {
+        jumpTo(position - realCount);
+      }
+    });
+
+    prevBtn?.addEventListener('click', () => move(-1));
+    nextBtn?.addEventListener('click', () => move(1));
+
+    // Touch/swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    viewport.addEventListener(
+      'touchstart',
+      (e) => {
+        touchStartX = e.touches[0].clientX;
+      },
+      { passive: true },
+    );
+
+    viewport.addEventListener(
+      'touchend',
+      (e) => {
+        touchEndX = e.changedTouches[0].clientX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 40) {
+          move(diff > 0 ? 1 : -1);
+        }
+      },
+      { passive: true },
+    );
+
+    let lastVisible = getVisibleCount();
+    window.addEventListener('resize', () => {
+      const nowVisible = getVisibleCount();
+      if (nowVisible !== lastVisible) {
+        lastVisible = nowVisible;
+        rebuild();
+      } else {
+        setWidths();
+        jumpTo(position);
+      }
+    });
+
+    rebuild();
+  }
+
+  document.querySelectorAll('.carousel-wrap').forEach(setupCarousel);
+</script>
+
 <style>
+  /* Subtle black-to-purple gradient behind the whole page */
+ .page-gradient {
+    background: var(--page-gradient);
+  }
   .hero {
-    background-image: url('/hero-bg.png');
-    /* background: linear-gradient(135deg, var(--brand-purple-dark), var(--brand-purple-darker)); */
-    height: 530px;
-
-      color: #fff;
-    padding: 6rem 1.5rem;
-    text-align: center;
-    
-  }
-  .hero-content h1 {
-    
+    position: relative;
+    height: 60vh;
+    min-height: 500px;
+    max-height: 530px;
+    overflow: hidden;
     color: #fff;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
+    text-align: center;
   }
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  background: radial-gradient(
-    circle,
-    transparent 55%,
-    rgba(0, 0, 0, 0.575) 100%
-  );
-}
-
-.hero:hover::after {
-  opacity: 5;
-}
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+    z-index: 0;
+  }
+  .hero-bg-a {
+    opacity: 1;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: radial-gradient(circle, transparent 55%, rgba(0, 0, 0, 0.575) 100%);
+    z-index: 1;
+  }
+  .hero:hover::after {
+    opacity: 1;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 2.5rem;
+  }
   .btns {
     display: inline-block;
-  background:#00000017;
+    background: #42424231;
     padding: 12px 32px;
     border-radius: 999px;
     font-weight: 700;
     border: 2px solid #790696;
     font-size: 23px;
-    margin-top: 350px;
     transition: transform 0.15s ease, background 0.15s ease;
   }
-
-  .btns:hover{
-  /* color:rgba(59, 9, 105, 0.767); */
-    background:#00000063;
+  .btns:hover {
+    background: #00000063;
     transform: translateY(-2px);
+  }
+
+  /* Consistent breathing room between every major block on the page:
+     hero -> featured products -> featured projects -> services -> contact */
+  .page-gradient > section + section {
+    margin-top: 4.5rem;
   }
 
   .section {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 3rem 1.5rem;
+    padding: 3.5rem 1.5rem;
   }
   .section-title {
     font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3.5rem;
     text-align: left;
     color: var(--text-dark);
+    
   }
 
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
+  #products{
+    margin-left:85px;
+    margin-top:-40px;
   }
-  .card {
+  #projects{
+    margin-left:85px;
+  }
+  /* Full-bleed: stretch edge-to-edge regardless of parent container width */
+  .section-full {
+    max-width: none;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .carousel-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .carousel-viewport {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    padding-top: 12px;
+    padding-bottom: 24px;
+    margin-top: -12px;
+    margin-bottom: -24px;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.4s ease;
+  }
+  .carousel-item {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+  .carousel-arrow {
+    flex: 0 0 auto;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
     border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 1rem;
+    background: var(--surface-alt);
+    color: var(--text-nav);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .carousel-arrow:hover {
+    border-color: var(--brand-purple);
+    color: var(--text-nav);
+  }
+
+  .card {
+ border: 1px solid var(--feature-border);
+    border-radius: 12px;
+    padding: 1.1rem;
     display: block;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
   }
   .card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 24px rgba(124, 58, 237, 0.15);
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(124, 58, 237, 0.22);
     border-color: var(--brand-purple);
   }
   .card-thumb {
     position: relative;
     background: var(--brand-purple-light);
-    height: 140px;
-    border-radius: 6px;
-    margin-bottom: 0.75rem;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 0.9rem;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -185,10 +431,11 @@ const services = [
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: filter 0.15s ease;
+    transition: filter 0.15s ease, transform 0.3s ease;
   }
   .card:hover .card-thumb img {
     filter: brightness(0.55);
+    transform: scale(1.04);
   }
   .card-overlay {
     position: absolute;
@@ -196,7 +443,7 @@ const services = [
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: #fff;
     opacity: 0;
@@ -206,250 +453,154 @@ const services = [
     opacity: 1;
   }
   .card h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--text-dark);
   }
 
+  .services-section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+  .services-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  .service-box {
+    position: relative;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: linear-gradient(145deg, rgba(121, 9, 150, 0.13), rgba(206, 115, 203, 0.06));
+    border: 1px solid rgba(180, 100, 190, 0.2);
+    border-radius: 10px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .service-box::before {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: -35px;
+    right: -25px;
+    border-radius: 50%;
+    background: rgba(121, 9, 150, 0.18);
+    filter: blur(20px);
+  }
+  .service-glyph {
+    position: relative;
+    z-index: 1;
+    width: 110px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 22px;
+    background: rgba(121, 9, 150, 0.2);
+    border: 1px solid rgba(170, 80, 190, 0.35);
+    font-size: 3.6rem;
+    line-height: 1;
+    filter: drop-shadow(0 0 10px rgba(170, 70, 210, 0.5));
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .service-title {
+    position: relative;
+    z-index: 1;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+  }
+  .service-box:hover {
+    transform: translateY(-4px);
+    border-color: rgba(160, 70, 190, 0.55);
+    background: linear-gradient(145deg, rgba(121, 9, 150, 0.23), rgba(206, 115, 203, 0.09));
+    box-shadow: 0 10px 30px rgba(90, 20, 120, 0.22);
+  }
+  .service-box:hover .service-glyph {
+    transform: scale(1.08);
+    background: rgba(121, 9, 150, 0.3);
+  }
 
-
-.services-section {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
-.services-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-}
-
-.service-box {
-  position: relative;
-
-  min-height: 200px;
-
-  display: flex;
-  flex-direction: column;
-
-  align-items: center;
-  justify-content: center;
-
-  gap: 0.65rem;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(121, 9, 150, 0.13),
-      rgba(206, 115, 203, 0.06)
-    );
-
-  border: 1px solid rgba(180, 100, 190, 0.2);
-
-  border-radius: 10px;
-
-  text-decoration: none;
-
-  overflow: hidden;
-
-  transition:
-    transform 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    background 0.2s ease;
-}
-
-.service-box::before {
-  content: "";
-
-  position: absolute;
-
-  width: 80px;
-  height: 80px;
-
-  top: -35px;
-  right: -25px;
-
-  border-radius: 50%;
-
-  background: rgba(121, 9, 150, 0.18);
-
-  filter: blur(20px);
-
-  transition: opacity 0.2s ease;
-}
-
-.service-glyph {
-  position: relative;
-  z-index: 1;
-
-  width: 48px;
-  height: 48px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 12px;
-
-  background: rgba(121, 9, 150, 0.12);
-
-  border: 1px solid rgba(170, 80, 190, 0.25);
-
-  font-size: 1.6rem;
-
-  filter: drop-shadow(
-    0 0 8px rgba(170, 70, 210, 0.45)
-  );
-
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease;
-}
-
-.service-title {
-  position: relative;
-  z-index: 1;
-
-  color: #d9cde2;
-
-  font-size: 0.85rem;
-
-  font-weight: 600;
-
-  text-align: center;
-}
-
-.service-box:hover {
-  transform: translateY(-4px);
-
-  border-color: rgba(160, 70, 190, 0.55);
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(121, 9, 150, 0.23),
-      rgba(206, 115, 203, 0.09)
-    );
-
-  box-shadow:
-    0 10px 30px rgba(90, 20, 120, 0.22);
-}
-
-.service-box:hover .service-glyph {
-  transform: scale(1.08);
-
-  background: rgba(121, 9, 150, 0.22);
-}
- .contact-bar {
-  position: relative;
-  min-height: 350px;
-  height: 300px;
-  background-image:
-    linear-gradient(
-      rgba(10, 6, 18, 0.288),
-      rgba(10, 6, 18, 0.24)
-    ),
-    url('/contactus.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  color: #fff;
-  text-align: center;
-  padding: 2rem 1.5rem;
-  overflow: hidden;
-}
-
-/* Slightly soften the image without blurring the text */
-.contact-bar::before {
-  content: "";
-  position: absolute;
-  inset: -8px;
-  background: inherit;
-  filter: blur(1.5px);
-  transform: scale(1.02);
-  z-index: 0;
-}
-
-/* Dark cinematic overlay */
-.contact-bar::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(8, 5, 15, 0.45),
-    rgba(8, 5, 15, 0.08),
-    rgba(8, 5, 15, 0.45)
-  );
-  z-index: 1;
-}
-
-.contact-bar h2 {
-  position: relative;
-  z-index: 2;
-
-  margin: 0 0 1.25rem;
-  height: auto;
-
-  color: #fff;
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
-  font-weight: 700;
-  line-height: 1.15;
-
-  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.7);
-}
-
-.btne {
-  position: relative;
-  z-index: 2;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  min-width: 150px;
-  padding: 12px 34px;
-
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  border-radius: 999px;
-
-  background: rgba(35, 20, 50, 0.65);
-  backdrop-filter: blur(8px);
-
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-decoration: none;
-
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.btne:hover {
-  transform: translateY(-3px);
-  background: rgba(121, 9, 150, 0.8);
-  border-color: rgba(255, 255, 255, 0.7);
-  box-shadow: 0 12px 30px rgba(121, 9, 150, 0.35);
-}
-
-   
-  
+  .contact-bar {
+    position: relative;
+    min-height: 300px;
+    background-image: linear-gradient(rgba(10, 6, 18, 0.288), rgba(10, 6, 18, 0.24)), url('/contactus.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    padding: 3.5rem 1.5rem;
+    overflow: hidden;
+  }
+  .contact-bar h2 {
+    position: relative;
+    z-index: 2;
+    margin: 0 0 1.25rem;
+    color: #fff;
+    font-size: clamp(1.6rem, 5vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.15;
+    text-shadow: 0 3px 14px rgba(0, 0, 0, 0.7);
+  }
+  .btne {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px;
+    padding: 12px 34px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 999px;
+    background: rgba(35, 20, 50, 0.65);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btne:hover {
+    transform: translateY(-3px);
+    background: rgba(121, 9, 150, 0.8);
+    border-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 12px 30px rgba(121, 9, 150, 0.35);
+  }
 
   @media (max-width: 768px) {
-    .card-grid,
+    .page-gradient > section + section {
+      margin-top: 3rem;
+    }
+    .services-row {
+      grid-template-columns: 1fr 1fr;
+    }
+    .section {
+      padding: 2.5rem 1rem;
+    }
+    .section-full {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+  @media (max-width: 480px) {
     .services-row {
       grid-template-columns: 1fr;
+    }
+    .btns {
+      font-size: 18px;
+      padding: 10px 24px;
     }
   }
 </style>
