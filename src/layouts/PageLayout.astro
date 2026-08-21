@@ -14,7 +14,7 @@ const { metadata } = Astro.props;
 
   <!-- Announcement Banner -->
   <div class="announcement" id="announcement">
-    <span>New game launching next week — stay tuned!</span>
+    <span>New game launching soon — stay tuned!</span>
     <button id="closeAnnouncement" aria-label="Dismiss announcement">&times;</button>
   </div>
 
@@ -23,6 +23,7 @@ const { metadata } = Astro.props;
     <div class="header-inner">
       <a href="/" class="logo-link">
         <img src="/logo.svg" alt="[Demo Gaming Company] logo" class="logo-img" />
+        <h1 class="sr-only">[Demo Gaming Company]</h1>
       </a>
 
       <nav class="main-nav" id="mainNav">
