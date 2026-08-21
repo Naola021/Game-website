@@ -1,228 +1,366 @@
 ---
-import Features2 from '~/components/widgets/Features2.astro';
-import Features3 from '~/components/widgets/Features3.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import Steps2 from '~/components/widgets/Steps2.astro';
-import Layout from '~/layouts/PageLayout.astro';
+// src/pages/about.astro
+import PageLayout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'About us',
+  title: 'About Us — [Your Gaming Company]',
 };
+
+const milestones = ['Founded 2002', 'Milestone change 2008', 'Major Launch 2010', 'Today'];
+
+const team = [
+  { name: 'Dawit Bekele', role: 'Creative Director' },
+  { name: 'Hana Tesfaye', role: 'Lead Game Developer' },
+  { name: 'Yohannes Alemu', role: 'Game Designer' },
+  { name: 'Samuel Girma', role: 'Narrative Designer' },
+];
 ---
 
-<Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
+<PageLayout metadata={metadata}>
+  <!-- Hero -->
+  <section class="page-hero">
+    <h1>About Us</h1>
+  </section>
 
-  <Hero
-    tagline="About us"
-    image={{
-      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Caos Image',
-    }}
-  >
-    <Fragment slot="title">
-      Elevate your online presence with our <br />
-      <span class="text-accent dark:text-white"> Beautiful Website Templates</span>
-    </Fragment>
+  <!-- Timeline -->
+  <section class="section">
+    <h2 class="section-title">Our Story</h2>
+    <div class="timeline">
+      <div class="timeline-line"></div>
+      <div class="timeline-points">
+        {
+          milestones.map((m) => (
+            <div class="timeline-point">
+              <span class="dot" />
+              <span class="label">{m}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div class="story-content">
+      <p>
+        This company began with a simple dream: to create games from Ethiopia that could be enjoyed anywhere in the world. What started as a small team of passionate creators grew through years of experimentation, creativity, and a love for interactive storytelling.
 
-    <Fragment slot="subtitle">
-      Donec efficitur, ipsum quis congue luctus, mauris magna convallis mauris, eu auctor nisi lectus non augue. Donec
-      quis lorem non massa vulputate efficitur ac at turpis. Sed tincidunt ex a nunc convallis, et lobortis nisi tempus.
-      Suspendisse vitae nisi eget tortor luctus maximus sed non lectus.
-    </Fragment>
-  </Hero>
+        From our early projects to our first major game launch, every milestone shaped who we are today. We continue to combine Ethiopian inspiration with modern game development to build memorable worlds, unique characters, and experiences that bring players together.
+      </p>
+    </div>
+  </section>
 
-  <!-- Stats Widget ****************** -->
+  <!-- Team -->
+  <section class="section">
+    <h2 class="section-title">Team</h2>
+    <div class="team-grid">
+      {
+        team.map((member) => (
+          <div class="team-card">
+            <div class="avatar" />
+            <h3>{member.name}</h3>
+            <p class="role">{member.role}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
 
-  <Stats
-    title="Statistics about us"
-    stats={[
-      { title: 'Offices', amount: '4' },
-      { title: 'Employees', amount: '248' },
-      { title: 'Templates', amount: '12' },
-      { title: 'Awards', amount: '24' },
-    ]}
-  />
+  <!-- Mission & Vision -->
+  <section class="section">
+    <div class="mv-grid">
+      <div class="mv-card">
+        <span class="mv-icon">🎯</span>
+        <div>
+          <h3>Our Mission</h3>
+          <p>Our mission is to create immersive games that combine compelling storytelling, engaging gameplay, and exceptional design. We are dedicated to crafting experiences that entertain, inspire, and leave a lasting impression on players of all ages.
 
-  <!-- Features3 Widget ************** -->
+We believe games are more than just entertainment—they are a powerful medium for preserving culture, sharing meaningful stories, and bringing people together. Through creativity, innovation, and attention to detail, we strive to build worlds that players can explore, connect with, and remember long after the game ends.
 
-  <Features3
-    title="Our templates"
-    subtitle="Etiam scelerisque, enim eget vestibulum luctus, nibh mauris blandit nulla, nec vestibulum risus justo ut enim. Praesent lacinia diam et ante imperdiet euismod."
-    columns={3}
-    isBeforeContent={true}
-    items={[
-      {
-        title: 'Educational',
-        description:
-          'Morbi faucibus luctus quam, sit amet aliquet felis tempor id. Cras augue massa, ornare quis dignissim a, molestie vel nulla.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Interior Design',
-        description:
-          'Vivamus porttitor, tortor convallis aliquam pretium, turpis enim consectetur elit, vitae egestas purus erat ac nunc nulla.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Photography',
-        description:
-          'Duis sed lectus in nisl vehicula porttitor eget quis odio. Aliquam erat volutpat. Nulla eleifend nulla id sem fermentum.',
-        icon: 'tabler:template',
-      },
-    ]}
-  />
+Every project we undertake is driven by our passion for excellence, our commitment to quality, and our desire to create games that inspire curiosity, challenge imagination, and celebrate the diversity of human history and creativity.</p>
+        </div>
+      </div>
+      <div class="mv-card">
+        <span class="mv-icon">🔭</span>
+        <div>
+          <h3>Our Vision</h3>
+          <p>Our vision is to become a globally recognized game development studio known for creating innovative, high-quality, and culturally inspired gaming experiences that resonate with players around the world.
 
-  <!-- Features3 Widget ************** -->
+We aspire to push the boundaries of interactive entertainment by embracing new technologies, refining our craft, and continuously improving every game we create. Our goal is to tell untold stories, celebrate rich cultures, and develop unforgettable adventures that connect people across different backgrounds and generations.
 
-  <Features3
-    columns={3}
-    isAfterContent={true}
-    items={[
-      {
-        title: 'E-commerce',
-        description:
-          'Rutrum non odio at vehicula. Proin ipsum justo, dignissim in vehicula sit amet, dignissim id quam. Sed ac tincidunt sapien.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Blog',
-        description:
-          'Nullam efficitur volutpat sem sed fringilla. Suspendisse et enim eu orci volutpat laoreet ac vitae libero.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Business',
-        description:
-          'Morbi et elit finibus, facilisis justo ut, pharetra ipsum. Donec efficitur, ipsum quis congue luctus, mauris magna.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Branding',
-        description:
-          'Suspendisse vitae nisi eget tortor luctus maximus sed non lectus. Cras malesuada pretium placerat. Nullam venenatis dolor a ante rhoncus.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Medical',
-        description:
-          'Vestibulum malesuada lacus id nibh posuere feugiat. Nam volutpat nulla a felis ultrices, id suscipit mauris congue. In hac habitasse platea dictumst.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Fashion Design',
-        description:
-          'Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus.',
-        icon: 'tabler:template',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'Colorful Image',
-    }}
-  />
+As we grow, we aim to build a passionate community of players, creators, and partners who share our belief that games can educate, inspire, and entertain. We envision a future where our studio stands as a symbol of creativity, authenticity, and excellence within the global gaming industry.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Steps2 Widget ****************** -->
+  <!-- Contact Bar -->
+  <section class="contact-bar">
+    <h2>Let's get in touch?</h2>
+    <a href="/contact" class="btne btn-light">Contact</a>
+  </section>
+</PageLayout>
 
-  <Steps2
-    title="Our values"
-    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
-    items={[
-      {
-        title: 'Customer-centric approach',
-        description:
-          'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.',
-      },
-      {
-        title: 'Constant Improvement',
-        description:
-          'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.',
-      },
-      {
-        title: 'Ethical Practices',
-        description:
-          'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-      },
-    ]}
-  />
+<script>
+  // Reveal timeline points as user scrolls into view
+  const points = document.querySelectorAll('.timeline-point');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    },
+    { threshold: 0.4 },
+  );
+  points.forEach((p) => observer.observe(p));
+</script>
 
-  <!-- Steps2 Widget ****************** -->
+<style>
+   .page-hero {
+    background-image: url('/aboutus.png');
+    /* background: linear-gradient(135deg, var(--brand-purple-dark), var(--brand-purple-darker)); */
+    height: 300px;
 
-  <Steps2
-    title="Achievements"
-    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla, sed porttitor est nibh at nulla."
-    isReversed={true}
-    callToAction={{
-      text: 'See more',
-      href: '/',
-    }}
-    items={[
-      {
-        title: 'Global reach',
-        description: 'Nam malesuada urna in enim imperdiet tincidunt. Phasellus non tincidunt nisi, at elementum mi.',
-        icon: 'tabler:globe',
-      },
-      {
-        title: 'Positive customer feedback and reviews',
-        description:
-          'Cras semper nulla leo, eget laoreet erat cursus sed. Praesent faucibus massa in purus iaculis dictum.',
-        icon: 'tabler:message-star',
-      },
-      {
-        title: 'Awards and recognition as industry experts',
-        description:
-          'Phasellus lacinia cursus velit, eu malesuada magna pretium eu. Etiam aliquet tellus purus, blandit lobortis ex rhoncus vitae.',
-        icon: 'tabler:award',
-      },
-    ]}
-  />
+      color: #fff;
+    padding: 6rem 1.5rem;
+    text-align: center;
+    
+  }
+  .page-hero h1 {
+    color: #fff;
+    font-size: 3rem;
+    font-weight: 900;
+  }
 
-  <!-- Features2 Widget ************** -->
+  .section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+  }
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: left;
+    color: var(--text-dark);
+  }
 
-  <Features2
-    title="Our locations"
-    tagline="Find us"
-    columns={4}
-    items={[
-      {
-        title: 'EE.UU',
-        description: '1234 Lorem Ipsum St, 12345, Miami',
-      },
-      {
-        title: 'Spain',
-        description: '5678 Lorem Ipsum St, 56789, Madrid',
-      },
-      {
-        title: 'Australia',
-        description: '9012 Lorem Ipsum St, 90123, Sydney',
-      },
-      {
-        title: 'Brazil',
-        description: '3456 Lorem Ipsum St, 34567, São Paulo',
-      },
-    ]}
-  />
+  /* Timeline */
+  .timeline {
+    position: relative;
+  }
+  .timeline-line {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--border-color);
+  }
+  .timeline-points {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+  .timeline-point {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .timeline-point.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 3px solid var(--brand-purple);
+  }
+  .label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+.story-content {
+    margin-top: 2rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+  }
+  /* Team */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  .team-card {
+    text-align: center;
+  }
+  .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--brand-purple-light);
+    margin: 0 auto 0.75rem;
+    transition: box-shadow 0.15s ease;
+  }
+  .team-card:hover .avatar {
+    box-shadow: 0 0 0 4px var(--brand-purple-light), 0 0 20px rgba(124, 58, 237, 0.35);
+  }
+  .team-card h3 {
+    font-size: 0.95rem;
+  }
+  .role {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
 
-  <!-- Features2 Widget ************** -->
+  /* Mission & Vision */
+  .mv-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .mv-card {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+  }
+  .mv-icon {
+    font-size: 1.75rem;
+  }
+  .mv-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+  }
+  .mv-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
 
-  <Features2
-    title="Technical Support"
-    tagline="Contact us"
-    columns={2}
-    items={[
-      {
-        title: 'Chat with us',
-        description:
-          'Integer luctus laoreet libero, auctor varius purus rutrum sit amet. Ut nec molestie nisi, quis eleifend mi.',
-        icon: 'tabler:messages',
-      },
-      {
-        title: 'Call us',
-        description:
-          'Mauris faucibus finibus orci, in posuere elit viverra non. In hac habitasse platea dictumst. Cras lobortis metus a hendrerit congue.',
-        icon: 'tabler:headset',
-      },
-    ]}
-  />
-</Layout>
+  
+ .contact-bar {
+  position: relative;
+  min-height: 350px;
+  height: 300px;
+  background-image:
+    linear-gradient(
+      rgba(10, 6, 18, 0.288),
+      rgba(10, 6, 18, 0.24)
+    ),
+    url('/contactus.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  overflow: hidden;
+}
+
+/* Slightly soften the image without blurring the text */
+.contact-bar::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  background: inherit;
+  filter: blur(1.5px);
+  transform: scale(1.02);
+  z-index: 0;
+}
+
+/* Dark cinematic overlay */
+.contact-bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(8, 5, 15, 0.45),
+    rgba(8, 5, 15, 0.08),
+    rgba(8, 5, 15, 0.45)
+  );
+  z-index: 1;
+}
+
+.contact-bar h2 {
+  position: relative;
+  z-index: 2;
+
+  margin: 0 0 1.25rem;
+  height: auto;
+
+  color: #fff;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+
+  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.7);
+}
+
+.btne {
+  position: relative;
+  z-index: 2;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 150px;
+  padding: 12px 34px;
+
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+
+  background: rgba(35, 20, 50, 0.65);
+  backdrop-filter: blur(8px);
+
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btne:hover {
+  transform: translateY(-3px);
+  background: rgba(121, 9, 150, 0.8);
+  border-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 12px 30px rgba(121, 9, 150, 0.35);
+}
+
+   
+  
+  @media (max-width: 768px) {
+    .team-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .mv-grid {
+      grid-template-columns: 1fr;
+    }
+    .timeline-points {
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .timeline-line {
+      display: none;
+    }
+  }
+</style>
