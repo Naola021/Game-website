@@ -17,7 +17,7 @@ export interface Product {
   purchaseLink?: string;
   images?: string[]; // screenshots/cover art — first image is used as the card cover
   trailerUrl?: string;
-  price?: string; // e.g. '$19.99' — demo price for the cart/checkout flow
+  price?: string; // e.g. '1,999'
 }
 
 export const products: Product[] = [
@@ -44,7 +44,7 @@ export const products: Product[] = [
     purchaseLink: '',
     images: ['/hero-bg.png', '/adwa1.png', '/adwa2.png', '/adwa3.png'],
     trailerUrl: '',
-    price: '$29.99',
+    price: '2,999ETB',
   },
   {
     slug: 'erta-ale-rider',
@@ -67,7 +67,7 @@ export const products: Product[] = [
     purchaseLink: '',
     images: ['/erta-ale-ride.jpg', '/ertale1.jpg', '/ertale2.jpg', '/ertale3.jpg'],
     trailerUrl: '',
-    price: '$19.99',
+    price: '1,999ETB',
   },
   {
     slug: 'habeshan-restaurant',
@@ -90,7 +90,7 @@ export const products: Product[] = [
     purchaseLink: '',
     images: ['/habeshanrest.jpg', '/cook1.jpg', '/cook2.jpg', '/cook3.jpg'],
     trailerUrl: '',
-    price: '$9.99',
+    price: '2,999ETB',
   },
   {
     slug: 'ethiopian-taxi-simulator',
@@ -112,6 +112,6 @@ export const products: Product[] = [
     purchaseLink: '',
     images: ['/taxi-simulate.jpg', '/taxi1.jpg', '/taxi2.jpg', '/taxi3.jpg'],
     trailerUrl: '',
-    price: '$14.99',
+    price: '1,499ETB',
   },
 ];
