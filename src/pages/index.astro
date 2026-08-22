@@ -417,8 +417,9 @@ const services = [
   .card-thumb {
     position: relative;
     background: var(--brand-purple-light);
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16 / 11;
     height: auto;
+    min-height: 380px;
     border-radius: 8px;
     margin-bottom: 0.9rem;
     overflow: hidden;
@@ -593,6 +594,9 @@ const services = [
       padding-left: 1rem;
       padding-right: 1rem;
     }
+    .card-thumb {
+      min-height: 260px;
+    }
   }
   @media (max-width: 480px) {
     .services-row {
@@ -601,6 +605,9 @@ const services = [
     .btns {
       font-size: 18px;
       padding: 10px 24px;
+    }
+    .card-thumb {
+      min-height: 200px;
     }
   }
 </style>
