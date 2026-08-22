@@ -164,6 +164,15 @@ const { metadata } = Astro.props;
   </script>
 
   <style is:global>
+    html,
+    body {
+      overflow-x: hidden;
+      /* Prevents the full-bleed carousel sections (which use 100vw) from
+         causing a horizontal scrollbar and letting cards peek past the
+         screen edges. 100vw doesn't account for the scrollbar's own width,
+         so it always ends up slightly wider than the visible window. */
+    }
+
     :root {
       --brand-purple: #a78bfa;
       --brand-purple-dark: #8b5cf6;
