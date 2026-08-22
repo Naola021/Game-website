@@ -23,7 +23,7 @@ const { metadata } = Astro.props;
     <div class="header-inner">
       <a href="/" class="logo-link">
   <img src="/logo.svg" alt="FMS IT Solution logo" class="logo-img" />
-  <span class="logo-text">FMS IT Solution</span>
+  <span class="logo-text">FMS IT Sol.</span>
 </a>
 
       <nav class="main-nav" id="mainNav">
@@ -205,11 +205,18 @@ const { metadata } = Astro.props;
     }
 
     .icon-btn,
-    .hamburger,
     .carousel-arrow,
     button {
       min-height: 44px;
       min-width: 44px; /* comfortable minimum tap target */
+    }
+
+    /* Hamburger keeps its own small visual size — the button's clickable
+       padding (not this box) is what makes it tappable, so it doesn't need
+       to inherit the 44px minimum above. */
+    .hamburger {
+      min-height: 0;
+      min-width: 0;
     }
 
     @media (max-width: 480px) {
@@ -218,6 +225,33 @@ const { metadata } = Astro.props;
       }
       .logo-img {
         height: 32px;
+      }
+
+      /* Shrink the icon cluster so it doesn't crowd small screens */
+      .header-icons {
+        gap: 0.3rem;
+      }
+      .icon-btn {
+        width: 26px;
+        height: 26px;
+        min-width: 26px;
+        min-height: 26px;
+      }
+      .icon-btn svg {
+        width: 12px;
+        height: 12px;
+      }
+      .icon-badge {
+        width: 12px;
+        height: 12px;
+        min-width: 12px;
+        font-size: 0.55rem;
+        top: -3px;
+        right: -3px;
+      }
+      .hamburger {
+        width: 16px;
+        height: 11px;
       }
     }
 
@@ -236,7 +270,6 @@ const { metadata } = Astro.props;
     }
 
     a {
-      font-size:120px;
       text-decoration: none;
       color: inherit;
     }
@@ -311,8 +344,8 @@ const { metadata } = Astro.props;
   gap: 0.6rem;
 }
 .logo-text {
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-size: 0.95rem;
+  font-weight: 7650;
   color: var(--text-dark);
   white-space: nowrap;
 }
