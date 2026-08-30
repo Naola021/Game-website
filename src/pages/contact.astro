@@ -162,7 +162,7 @@ const metadata = {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Send';
       }
-    } catch (err) {
+    } catch (_err) {
       errorMsg?.classList.add('visible');
       submitBtn.disabled = false;
       submitBtn.textContent = 'Send';
