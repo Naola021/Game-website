@@ -9,10 +9,10 @@ const metadata = {
 const milestones = ['Founded 2002', 'Milestone change 2008', 'Major Launch 2010', 'Today'];
 
 const team = [
-  { name: 'Dawit Bekele', role: 'Creative Director', photo: '/images/team/dawit.jpg' },
-  { name: 'Hana Tesfaye', role: 'Lead Game Developer', photo: '/images/team/hana.jpg' },
-  { name: 'Yohannes Alemu', role: 'Game Designer', photo: '/images/team/yohannes.jpg' },
-  { name: 'Samuel Girma', role: 'Narrative Designer', photo: '/images/team/samuel.jpg' },
+  { name: 'Dawit Bekele', role: 'Creative Director', photo: '/dawit.png' },
+  { name: 'Hana Tesfaye', role: 'Lead Game Developer', photo: '/hana.png' },
+  { name: 'Yohannes Alemu', role: 'Game Designer', photo: '/yohannes.png' },
+  { name: 'Samuel Girma', role: 'Narrative Designer', photo: '/samuel.png' },
 ];
 
 function getInitials(name: string) {
@@ -157,6 +157,7 @@ As we grow, we aim to build a passionate community of players, creators, and par
   .section-title {
     font-size: 1.5rem;
     margin-bottom: 2rem;
+    argin-left: 100px;
     text-align: left;
     color: var(--text-dark);
   }
@@ -170,7 +171,7 @@ As we grow, we aim to build a passionate community of players, creators, and par
     top: 8px;
     left: 0;
     right: 0;
-    height: 2px;
+    height: 3px;
     background: var(--border-color);
   }
   .timeline-points {
@@ -394,11 +395,34 @@ As we grow, we aim to build a passionate community of players, creators, and par
       grid-template-columns: 1fr;
     }
     .timeline-points {
-      flex-wrap: wrap;
-      gap: 1.5rem;
+      position: relative;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.75rem;
+      width: max-content;
+      max-width: 100%;
+      margin: 0 auto;
     }
     .timeline-line {
       display: none;
+    }
+    .timeline-points::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 6px;
+      width: 3px;
+      background: var(--border-color);
+    }
+    .timeline-point {
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+    }
+    .timeline-point .label {
+      text-align: left;
+      font-size: 0.9rem;
     }
   }
 </style>
