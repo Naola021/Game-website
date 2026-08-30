@@ -1,428 +1,261 @@
 ---
-
+// src/pages/about.astro
 import PageLayout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'About Us — [Your Gaming Company]',
+  title: 'About Us — FMS IT Solution PLC',
+  description:
+    'FMS IT Solution PLC is a game development studio dedicated to crafting engaging interactive experiences for mobile, PC, and web.',
 };
 
-const milestones = ['Founded 2002', 'Milestone change 2008', 'Major Launch 2010', 'Today'];
-
 const team = [
-  { name: 'Dawit Bekele', role: 'Creative Director', photo: '/dawit.png' },
-  { name: 'Hana Tesfaye', role: 'Lead Game Developer', photo: '/hana.png' },
-  { name: 'Yohannes Alemu', role: 'Game Designer', photo: '/yohannes.png' },
-  { name: 'Samuel Girma', role: 'Narrative Designer', photo: '/samuel.png' },
+  {
+    name: 'Dawit Bekele',
+    role: 'Creative Director',
+    photo: '/dawit.png',
+    bio: 'Directing studio artistic vision, worldbuilding, and immersive player experience design.',
+  },
+  {
+    name: 'Hana Tesfaye',
+    role: 'Lead Game Developer',
+    photo: '/hana.png',
+    bio: 'Spearheading core gameplay engineering, physics systems, and multi-platform engine optimization.',
+  },
+  {
+    name: 'Yohannes Alemu',
+    role: 'Game Designer',
+    photo: '/yohannes.png',
+    bio: 'Designing responsive mechanics, rewarding progression loops, and balanced economies.',
+  },
+  {
+    name: 'Samuel Girma',
+    role: 'Narrative Designer',
+    photo: '/samuel.png',
+    bio: 'Crafting captivating game narratives, character arcs, quest structures, and lore.',
+  },
 ];
 
-function getInitials(name: string) {
-  return name
-    .split(' ')
-    .map((n) => n[0])
-    .join('')
-    .slice(0, 2)
-    .toUpperCase();
-}
+const pillars = [
+  {
+    title: 'Player-Centered Craft',
+    description: 'We obsess over game feel, tactile feedback, and intuitive controls that make gameplay immediately satisfying.',
+  },
+  {
+    title: 'Technical Discipline',
+    description: 'Hands-on production across industry-standard game engines and WebGL with comprehensive multi-platform deployment knowledge.',
+  },
+  {
+    title: 'Transparent Collaboration',
+    description: 'Predictable milestone checkpoints and playable builds keep production aligned and on schedule.',
+  },
+  {
+    title: 'Full IP Ownership',
+    description: 'Our clients retain 100% ownership of source code, 3D assets, project repositories, and intellectual property.',
+  },
+];
 ---
 
 <PageLayout metadata={metadata}>
-  <div class="page-gradient">
-  <section class="page-hero">
-    <h1>About Us</h1>
-  </section>
+  <!-- Grand Hero Banner with Specular White Gradient Ending Edge -->
+  <section class="hero-grand-canvas pt-28 pb-16 sm:pt-36 sm:pb-24 rounded-b-[2.5rem] sm:rounded-b-[4rem] text-white relative z-20">
+    <div class="flute-overlay"></div>
 
-  <!-- Timeline -->
-  <section class="section">
-    <h2 class="section-title">Our Story</h2>
-    <div class="timeline">
-      <div class="timeline-line"></div>
-      <div class="timeline-points">
-        {
-          milestones.map((m) => (
-            <div class="timeline-point">
-              <span class="dot" />
-              <span class="label">{m}</span>
-            </div>
-          ))
-        }
+    <!-- Specular White Gradient Ending Edge -->
+    <div class="hero-white-edge"></div>
+    <div class="hero-white-glow"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
+      
+      <!-- Sleek Black Badge -->
+      <div class="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-black/60 border border-white/20 text-white/90 backdrop-blur-md mb-6 shadow-xs">
+        <span>Game Development Studio</span>
       </div>
-    </div>
-    <div class="story-content">
-      <p>
-        This company began with a simple dream: to create games from Ethiopia that could be enjoyed anywhere in the world. What started as a small team of passionate creators grew through years of experimentation, creativity, and a love for interactive storytelling.
 
-        From our early projects to our first major game launch, every milestone shaped who we are today. We continue to combine Ethiopian inspiration with modern game development to build memorable worlds, unique characters, and experiences that bring players together.
+      <!-- Architectural Headline -->
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight text-white leading-[1.05]">
+        The Team Behind<br />
+        <span class="bg-gradient-to-r from-emerald-400 via-emerald-300 to-[#0CDAFC] bg-clip-text text-transparent">The Games</span>
+      </h1>
+
+      <p class="mt-5 text-sm sm:text-base lg:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed font-normal">
+        FMS IT Solution PLC brings together passionate developers, 3D artists, and game designers to build high-quality games players love.
       </p>
     </div>
   </section>
 
-  <!-- Team -->
-  <section class="section">
-    <h2 class="section-title">Team</h2>
-    <div class="team-grid">
-      {
-        team.map((member) => (
-          <div class="team-card">
-            <div class="avatar">
-              {member.photo ? (
-                <img src={member.photo} alt={member.name} onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-              ) : null}
-              <span class="avatar-fallback" style={member.photo ? 'display:none' : ''}>
-                {getInitials(member.name)}
-              </span>
-            </div>
-            <h3>{member.name}</h3>
-            <p class="role">{member.role}</p>
+  <!-- Editorial Story Section -->
+  <section class="py-16 sm:py-24 relative z-10 bg-white dark:bg-[#060c08]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        
+        <!-- Left: Story Narrative -->
+        <div class="lg:col-span-6 space-y-4">
+          <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 block">
+            Our Mission
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white uppercase tracking-tight leading-tight">
+            Crafting Memorable Games with Technical Precision
+          </h2>
+          <div class="space-y-3.5 text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed pt-1">
+            <p>
+              FMS IT Solution PLC was founded on the belief that standout games emerge when artistic vision meets disciplined engineering.
+            </p>
+            <p>
+              Whether creating original titles or collaborating with visionary creators to bring ambitious worlds to life, our team is committed to delivering memorable player experiences with zero compromise on performance.
+            </p>
           </div>
-        ))
-      }
+        </div>
+
+        <!-- Right: Studio Values Card (Dark Glassmorphic) -->
+        <div class="lg:col-span-6">
+          <div class="rounded-3xl bg-[#0a140e] border border-white/[0.09] p-6 sm:p-8 space-y-6 text-white shadow-xl">
+            <h3 class="text-lg font-bold text-white uppercase tracking-tight">
+              OUR VALUES
+            </h3>
+            <div class="space-y-4">
+              <div class="flex items-start gap-3">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#0CDAFC] mt-1.5 shrink-0 shadow-[0_0_8px_rgba(12,218,252,0.6)]"></span>
+                <div>
+                  <h4 class="text-sm font-bold text-white uppercase">Player-First Feel</h4>
+                  <p class="text-xs text-slate-300 mt-0.5 leading-relaxed">
+                    Prioritizing intuitive controls, rewarding feedback, and smooth frame rates.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#0CDAFC] mt-1.5 shrink-0 shadow-[0_0_8px_rgba(12,218,252,0.6)]"></span>
+                <div>
+                  <h4 class="text-sm font-bold text-white uppercase">Milestone Clarity</h4>
+                  <p class="text-xs text-slate-300 mt-0.5 leading-relaxed">
+                    Regular sprint checkpoints with playable builds to keep everyone aligned.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#0CDAFC] mt-1.5 shrink-0 shadow-[0_0_8px_rgba(12,218,252,0.6)]"></span>
+                <div>
+                  <h4 class="text-sm font-bold text-white uppercase">Modular Code</h4>
+                  <p class="text-xs text-slate-300 mt-0.5 leading-relaxed">
+                    Clean, scalable architecture engineered for effortless live updates and expansion.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
-  <!-- Mission & Vision -->
-  <section class="section">
-    <div class="mv-grid">
-      <div class="mv-card">
-        <span class="mv-icon">🎯</span>
-        <div>
-          <h3>Our Mission</h3>
-          <p>Our mission is to create immersive games that combine compelling storytelling, engaging gameplay, and exceptional design. We are dedicated to crafting experiences that entertain, inspire, and leave a lasting impression on players of all ages.
-
-We believe games are more than just entertainment—they are a powerful medium for preserving culture, sharing meaningful stories, and bringing people together. Through creativity, innovation, and attention to detail, we strive to build worlds that players can explore, connect with, and remember long after the game ends.
-
-Every project we undertake is driven by our passion for excellence, our commitment to quality, and our desire to create games that inspire curiosity, challenge imagination, and celebrate the diversity of human history and creativity.</p>
-        </div>
+  <!-- Team Showcase Section (High-End Dark Design) -->
+  <section class="py-16 sm:py-24 relative z-10 bg-[#060c08] text-white border-y border-white/[0.08]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3 mb-12 sm:mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest bg-gradient-to-r from-emerald-400 to-[#0CDAFC] bg-clip-text text-transparent block">
+          Leadership
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white uppercase leading-tight">
+          Meet Our Team
+        </h2>
+        <p class="text-sm sm:text-base text-slate-400 leading-relaxed">
+          The core team bringing games from concept to launch.
+        </p>
       </div>
-      <div class="mv-card">
-        <span class="mv-icon">🔭</span>
-        <div>
-          <h3>Our Vision</h3>
-          <p>Our vision is to become a globally recognized game development studio known for creating innovative, high-quality, and culturally inspired gaming experiences that resonate with players around the world.
 
-We aspire to push the boundaries of interactive entertainment by embracing new technologies, refining our craft, and continuously improving every game we create. Our goal is to tell untold stories, celebrate rich cultures, and develop unforgettable adventures that connect people across different backgrounds and generations.
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {
+          team.map((member) => (
+            <div class="rounded-3xl bg-[#0d1810] border border-white/[0.08] p-6 text-white flex flex-col items-center text-center group hover:border-[#0CDAFC]/30 transition-all duration-300 shadow-xl">
+              
+              <!-- Avatar -->
+              <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden mb-5 border-2 border-white/10 group-hover:border-[#0CDAFC]/40 transition-colors shadow-md">
+                <img
+                  src={member.photo}
+                  alt={member.name}
+                  class="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                />
+              </div>
 
-As we grow, we aim to build a passionate community of players, creators, and partners who share our belief that games can educate, inspire, and entertain. We envision a future where our studio stands as a symbol of creativity, authenticity, and excellence within the global gaming industry.</p>
-        </div>
+              <!-- Name -->
+              <h3 class="text-base sm:text-lg font-bold text-white uppercase tracking-tight group-hover:text-emerald-400 transition-colors">
+                {member.name}
+              </h3>
+
+              <!-- Role -->
+              <span class="text-xs font-bold uppercase tracking-wider text-[#0CDAFC] mt-1 mb-3 block">
+                {member.role}
+              </span>
+
+              <!-- Description / Bio -->
+              <div class="p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] w-full text-center">
+                <p class="text-xs text-slate-300 leading-relaxed font-normal">
+                  {member.bio}
+                </p>
+              </div>
+            </div>
+          ))
+        }
       </div>
+
     </div>
   </section>
 
-  <!-- Contact Bar -->
-  <section class="contact-bar">
-    <h2>Let's get in touch?</h2>
-    <a href="/contact" class="btne btn-light">Contact</a>
+  <!-- Core Pillars Bento -->
+  <section class="py-16 sm:py-24 relative z-10 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3 mb-12 sm:mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 block">
+          OUR STANDARDS
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 dark:text-white uppercase leading-tight">
+          Why Work With Us
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+          The foundational principles guiding every project we deliver.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        {
+          pillars.map((item) => (
+            <div class="editorial-card p-6 sm:p-7 flex gap-4 items-start">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#0CDAFC] mt-2 shrink-0 shadow-[0_0_8px_rgba(12,218,252,0.6)]"></span>
+              <div class="space-y-1">
+                <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white uppercase tracking-tight">
+                  {item.title}
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+    </div>
   </section>
-  </div>
+
+  <!-- Closing Studio Banner -->
+  <section class="py-14 sm:py-20 relative z-10 bg-slate-50 dark:bg-[#09120c] border-t border-slate-200/80 dark:border-white/[0.06]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-5">
+      <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 block">
+        Start A Conversation
+      </span>
+      <h2 class="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white uppercase tracking-tight">
+        Have a game idea?<br />Let's bring it to life.
+      </h2>
+      <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-xl mx-auto leading-relaxed">
+        Let’s bring your game vision to life
+      </p>
+      <div class="pt-3">
+        <a href="/contact" class="btn-pill-emerald text-sm px-8 py-4">
+          <span>LET'S GET IN TOUCH →</span>
+        </a>
+      </div>
+    </div>
+  </section>
 </PageLayout>
-
-<script>
-  // Reveal timeline points as user scrolls into view
-  const points = document.querySelectorAll('.timeline-point');
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    },
-    { threshold: 0.4 },
-  );
-  points.forEach((p) => observer.observe(p));
-</script>
-
-<style>
-    .page-gradient {
-    background: var(--page-gradient);
-  }
-
-   .page-hero {
-    background-image: url('/aboutus.png');
-    height: 300px;
-
-      color: #fff;
-    padding: 6rem 1.5rem;
-    text-align: center;
-    
-  }
-  .page-hero h1 {
-    color: #fff;
-    font-size: 3rem;
-    font-weight: 900;
-  }
-
-  .section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 3rem 1.5rem;
-  }
-  .section-title {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    argin-left: 100px;
-    text-align: left;
-    color: var(--text-dark);
-  }
-
-  /* Timeline */
-  .timeline {
-    position: relative;
-  }
-  .timeline-line {
-    position: absolute;
-    top: 8px;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--border-color);
-  }
-  .timeline-points {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-  }
-  .timeline-point {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
-  .timeline-point.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .dot {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: var(--surface);
-    border: 3px solid var(--brand-purple);
-  }
-  .label {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-  }
-.story-content {
-    margin-top: 2rem;
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--text-dark);
-  }
-  /* Team */
-  .team-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-  }
-  .team-card {
-    text-align: center;
-  }
-  .avatar {
-    position: relative;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: var(--brand-purple-light);
-    margin: 0 auto 0.75rem;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: box-shadow 0.15s ease;
-  }
-  .avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .avatar-fallback {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--brand-purple);
-    background: var(--brand-purple-light);
-  }
-  .team-card:hover .avatar {
-    box-shadow: 0 0 0 4px var(--brand-purple-light), 0 0 20px rgba(124, 58, 237, 0.35);
-  }
-  .team-card h3 {
-    font-size: 0.95rem;
-  }
-  .role {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-  }
-
-  /* Mission & Vision */
-  .mv-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-  .mv-card {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 1.5rem;
-  }
-  .mv-icon {
-    font-size: 1.75rem;
-  }
-  .mv-card h3 {
-    font-size: 1.05rem;
-    margin-bottom: 0.4rem;
-  }
-  .mv-card p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-  }
-
-  
- .contact-bar {
-  position: relative;
-  min-height: 350px;
-  height: 300px;
-  background-image:
-    linear-gradient(
-      rgba(10, 6, 18, 0.288),
-      rgba(10, 6, 18, 0.24)
-    ),
-    url('/contactus.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  color: #fff;
-  text-align: center;
-  padding: 2rem 1.5rem;
-  overflow: hidden;
-}
-
-.contact-bar::before {
-  content: "";
-  position: absolute;
-  inset: -8px;
-  background: inherit;
-  filter: blur(1.5px);
-  transform: scale(1.02);
-  z-index: 0;
-}
-
-.contact-bar::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(8, 5, 15, 0.45),
-    rgba(8, 5, 15, 0.08),
-    rgba(8, 5, 15, 0.45)
-  );
-  z-index: 1;
-}
-
-.contact-bar h2 {
-  position: relative;
-  z-index: 2;
-
-  margin: 0 0 1.25rem;
-  height: auto;
-
-  color: #fff;
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
-  font-weight: 700;
-  line-height: 1.15;
-
-  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.7);
-}
-
-.btne {
-  position: relative;
-  z-index: 2;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  min-width: 150px;
-  padding: 12px 34px;
-
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  border-radius: 999px;
-
-  background: rgba(35, 20, 50, 0.65);
-  backdrop-filter: blur(8px);
-
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-decoration: none;
-
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.btne:hover {
-  transform: translateY(-3px);
-  background: rgba(121, 9, 150, 0.8);
-  border-color: rgba(255, 255, 255, 0.7);
-  box-shadow: 0 12px 30px rgba(121, 9, 150, 0.35);
-}
-
-  @media (max-width: 768px) {
-    .team-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-    .mv-grid {
-      grid-template-columns: 1fr;
-    }
-    .timeline-points {
-      position: relative;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1.75rem;
-      width: max-content;
-      max-width: 100%;
-      margin: 0 auto;
-    }
-    .timeline-line {
-      display: none;
-    }
-    .timeline-points::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 6px;
-      width: 3px;
-      background: var(--border-color);
-    }
-    .timeline-point {
-      flex-direction: row;
-      align-items: center;
-      gap: 1rem;
-    }
-    .timeline-point .label {
-      text-align: left;
-      font-size: 0.9rem;
-    }
-  }
-</style>
