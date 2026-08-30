@@ -115,7 +115,9 @@ const faqs = [
 
 <PageLayout metadata={metadata}>
   <!-- Grand Hero Banner with Specular White Gradient Ending Edge -->
-  <section class="hero-grand-canvas pt-28 pb-16 sm:pt-36 sm:pb-24 rounded-b-[2.5rem] sm:rounded-b-[4rem] text-white relative z-20">
+  <section
+    class="hero-grand-canvas pt-28 pb-16 sm:pt-36 sm:pb-24 rounded-b-[2.5rem] sm:rounded-b-[4rem] text-white relative z-20"
+  >
     <div class="flute-overlay"></div>
 
     <!-- Specular White Gradient Ending Edge -->
@@ -123,20 +125,23 @@ const faqs = [
     <div class="hero-white-glow"></div>
 
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
-      
       <!-- Sleek Black Badge -->
-      <div class="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-black/60 border border-white/20 text-white/90 backdrop-blur-md mb-6 shadow-xs">
+      <div
+        class="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-black/60 border border-white/20 text-white/90 backdrop-blur-md mb-6 shadow-xs"
+      >
         <span>OUR CAPABILITIES</span>
       </div>
 
       <!-- Architectural Headline -->
       <h1 class="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight text-white leading-[1.05]">
         Game Development<br />
-        <span class="bg-gradient-to-r from-emerald-400 via-emerald-300 to-[#0CDAFC] bg-clip-text text-transparent">Services</span>
+        <span class="bg-gradient-to-r from-emerald-400 via-emerald-300 to-[#0CDAFC] bg-clip-text text-transparent"
+          >Services</span
+        >
       </h1>
 
       <p class="mt-5 text-sm sm:text-base lg:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed font-normal">
-       From initial concepts and vision to custom gameplay, beautiful visual design, and final deployment.
+        From initial concepts and vision to custom gameplay, beautiful visual design, and final deployment.
       </p>
     </div>
   </section>
@@ -150,35 +155,26 @@ const faqs = [
             <div id={service.id} class="scroll-mt-28">
               <div class="editorial-card p-6 sm:p-8 h-full flex flex-col justify-between group">
                 <div class="space-y-4">
-                  
-                  <!-- Top Row -->
+                  {/* Top Row */}
                   <div class="flex items-center justify-between">
                     <div class="flex items-center gap-1.5 font-mono text-xs">
-                      <span class="font-bold text-emerald-600">
-                        {service.number}
-                      </span>
-                      <span class="text-[#0684D9] font-medium text-[11px]">
-                        // CAPABILITY
-                      </span>
+                      <span class="font-bold text-emerald-600">{service.number}</span>
+                      <span class="text-[#0684D9] font-medium text-[11px]">// CAPABILITY</span>
                     </div>
                   </div>
 
-                  <!-- Service Title -->
+                  {/* Service Title */}
                   <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight uppercase group-hover:text-emerald-600 transition-colors">
                     {service.title}
                   </h2>
 
-                  <!-- Headline -->
-                  <p class="text-xs sm:text-sm font-medium text-emerald-700 italic">
-                    "{service.headline}"
-                  </p>
+                  {/* Headline */}
+                  <p class="text-xs sm:text-sm font-medium text-emerald-700 italic">"{service.headline}"</p>
 
-                  <!-- Body -->
-                  <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    {service.body}
-                  </p>
+                  {/* Body */}
+                  <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">{service.body}</p>
 
-                  <!-- Key Deliverables -->
+                  {/* Key Deliverables */}
                   <div class="pt-4 space-y-2 border-t border-slate-200/80">
                     <span class="text-xs font-bold uppercase tracking-widest text-slate-700 block mb-2">
                       Key Deliverables
@@ -186,16 +182,15 @@ const faqs = [
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {service.deliverables.map((item) => (
                         <div class="flex items-start gap-2 text-xs text-slate-600">
-                          <span class="w-1.5 h-1.5 rounded-full bg-[#0CDAFC] mt-1.5 shrink-0 shadow-[0_0_6px_rgba(12,218,252,0.6)]"></span>
+                          <span class="w-1.5 h-1.5 rounded-full bg-[#0CDAFC] mt-1.5 shrink-0 shadow-[0_0_6px_rgba(12,218,252,0.6)]" />
                           <span>{item}</span>
                         </div>
                       ))}
                     </div>
                   </div>
-
                 </div>
 
-                <!-- Action Link -->
+                {/* Action Link */}
                 <div class="pt-5 mt-5 border-t border-slate-200/80">
                   <a
                     href="/contact"
@@ -204,7 +199,6 @@ const faqs = [
                     <span>Inquire About This Service →</span>
                   </a>
                 </div>
-
               </div>
             </div>
           ))
@@ -218,10 +212,11 @@ const faqs = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="rounded-3xl bg-[#060c08] text-white p-8 sm:p-12 lg:p-16 border border-white/[0.08] shadow-2xl">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
-          
           <!-- Left Column -->
           <div class="lg:col-span-5 space-y-4">
-            <span class="text-xs font-bold uppercase tracking-widest bg-gradient-to-r from-emerald-400 to-[#0CDAFC] bg-clip-text text-transparent block">
+            <span
+              class="text-xs font-bold uppercase tracking-widest bg-gradient-to-r from-emerald-400 to-[#0CDAFC] bg-clip-text text-transparent block"
+            >
               Support
             </span>
             <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white leading-tight">
@@ -245,25 +240,29 @@ const faqs = [
                     <span class="text-sm sm:text-base font-semibold text-white group-hover:text-emerald-400 transition-colors">
                       {faq.question}
                     </span>
-                    <span class="faq-icon text-lg font-mono text-[#0CDAFC] shrink-0">
-                      {index === 0 ? '−' : '+'}
-                    </span>
+                    <span class="faq-icon text-lg font-mono text-[#0CDAFC] shrink-0">{index === 0 ? '−' : '+'}</span>
                   </button>
-                  <div class:list={['faq-content text-xs sm:text-sm text-slate-400 leading-relaxed pb-3', index === 0 ? 'block' : 'hidden']}>
+                  <div
+                    class:list={[
+                      'faq-content text-xs sm:text-sm text-slate-400 leading-relaxed pb-3',
+                      index === 0 ? 'block' : 'hidden',
+                    ]}
+                  >
                     {faq.answer}
                   </div>
                 </div>
               ))
             }
           </div>
-
         </div>
       </div>
     </div>
   </section>
 
   <!-- Closing Studio Banner -->
-  <section class="py-14 sm:py-20 relative z-10 bg-white dark:bg-[#09120c] border-t border-slate-200/80 dark:border-white/[0.06]">
+  <section
+    class="py-14 sm:py-20 relative z-10 bg-white dark:bg-[#09120c] border-t border-slate-200/80 dark:border-white/[0.06]"
+  >
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-5">
       <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 block">
         Start A Project
@@ -272,7 +271,7 @@ const faqs = [
         Ready to build your game?
       </h2>
       <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-xl mx-auto leading-relaxed">
-      Let’s bring your game vision to life
+        Let’s bring your game vision to life
       </p>
       <div class="pt-3">
         <a href="/contact" class="btn-pill-emerald text-sm px-8 py-4">

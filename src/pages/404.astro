@@ -8,9 +8,7 @@ const title = `Error 404 — Page Not Found`;
 <PageLayout metadata={{ title }}>
   <section class="flex items-center min-h-[60vh] py-20 px-4">
     <div class="max-w-md mx-auto text-center space-y-6">
-      <h1 class="font-black text-8xl sm:text-9xl text-emerald-600 dark:text-emerald-400">
-        404
-      </h1>
+      <h1 class="font-black text-8xl sm:text-9xl text-emerald-600 dark:text-emerald-400">404</h1>
       <h2 class="text-2xl sm:text-3xl font-black uppercase text-slate-900 dark:text-white tracking-tight">
         Page Not Found
       </h2>
@@ -18,7 +16,11 @@ const title = `Error 404 — Page Not Found`;
         The page you are looking for might have been moved or does not exist.
       </p>
       <div class="pt-2">
-        <a rel="noopener noreferrer" href={getHomePermalink()} class="btn-pill-emerald text-xs tracking-wider uppercase px-8 py-3.5">
+        <a
+          rel="noopener noreferrer"
+          href={getHomePermalink()}
+          class="btn-pill-emerald text-xs tracking-wider uppercase px-8 py-3.5"
+        >
           <span>Back to Homepage →</span>
         </a>
       </div>
