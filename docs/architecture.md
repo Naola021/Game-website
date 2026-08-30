@@ -5,7 +5,7 @@ using attrative icons that goes with gaming or the company branding on over all 
 Header content: Company logo, Home, Services, Products, Projects, About, Contact.
 
 Sticky/Fixed
-Nav menu collapses to  hamburger menu on mobile
+Nav menu collapses to hamburger menu on mobile
 Active page nav highlight
 
 Footer content: Brand logo, Social media icons, Legal Links (Privacy Policy, Terms of Service), Technical details ("© 2026 ..Gaming Company.").
@@ -26,15 +26,15 @@ The CTA should have a hover effect that goes with the company branding or gaming
 
 Featured Products
 
-A dynamic grid with  2–3 top games or recent major projects.
+A dynamic grid with 2–3 top games or recent major projects.
 Hover state slight scale-up and Learn More button
-clicking  will take to that detail page
+clicking will take to that detail page
 
-Featured  Projects
+Featured Projects
 
-A dynamic grid with  2–3 top games or recent major projects.
+A dynamic grid with 2–3 top games or recent major projects.
 Hover state slight scale-up and Learn More button
-clicking  will take to that detail page
+clicking will take to that detail page
 
 Services overview
 
@@ -49,7 +49,7 @@ Text above the bottom with ( like "Lets get in touch?")
 Services page
 hero section on Vibrant image a "Services" heading
 Services cards with icon and interactive Cards when hovered over, cards glow
-If there is details to give about the services, add "Read More" bottom to expand the card downward  with details
+If there is details to give about the services, add "Read More" bottom to expand the card downward with details
 
 FAQ
 
@@ -58,19 +58,19 @@ Only one open at a time for clean page
 
 Products page(for player to browse or buy games)
 hero section on Vibrant image a "Products " heading
-Product grid content: grid layout featuring all game titles, lazy loading image and  Filters like Genre, Platform (PC, Mobile), or Status (Released, In Dev) things on bottom of image.
+Product grid content: grid layout featuring all game titles, lazy loading image and Filters like Genre, Platform (PC, Mobile), or Status (Released, In Dev) things on bottom of image.
 Filter and sort options if products are large enough to need it
-Clicking a card navigates to  product detail page
+Clicking a card navigates to product detail page
 
 Product Detail Page contents: Trailer video embed with controls, game description, features, system requirements, purchase button(Buy/Wishlist buttons link purchasing)
 
 Projects page(show protfolio to potentioal industry partners)
 hero section on Vibrant image a "Projects" heading
-Portfolio grid content:  cards of past completed work  or co-development milestones.
+Portfolio grid content: cards of past completed work or co-development milestones.
 Same behavior pattern as Products grid (clickable cards, lazy load images, sort/filter)
-hovering dim content and show text  "View Case Study"
+hovering dim content and show text "View Case Study"
 
-Case Study  layouts contents: Client name, Tech Stack used, Scope of work, Outcome metrics, and lightbox view when clicked screenshots.
+Case Study layouts contents: Client name, Tech Stack used, Scope of work, Outcome metrics, and lightbox view when clicked screenshots.
 Dynamically generated per project, same template reused
 
 About Us Page

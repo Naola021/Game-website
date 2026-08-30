@@ -1,135 +1,78 @@
 ---
-
+// src/pages/privacy.astro
 import PageLayout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Privacy Policy — ~DemoGames',
+  title: 'Privacy Policy | FMS IT Solution PLC',
+  description: 'Privacy policy for FMS IT Solution PLC website and services.',
 };
 
 const lastUpdated = 'August 2026';
 ---
 
 <PageLayout metadata={metadata}>
-  <section class="page-hero">
-    <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: {lastUpdated}</p>
+  <section class="pt-8 pb-10 sm:pt-12 sm:pb-14 text-center relative z-10">
+    <div class="max-w-3xl mx-auto px-4 space-y-3">
+      <div
+        class="inline-flex items-center gap-2 px-4 py-1 rounded-full text-xs font-medium bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 dark:text-emerald-300"
+      >
+        <span>Legal Documentation</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Privacy Policy</h1>
+      <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Last updated: {lastUpdated}</p>
+    </div>
   </section>
 
-  <section class="section">
-    <div class="legal-content">
-      <p class="intro">
-        This Privacy Policy explains how DemoGames collects,
-        uses, and protects information when you visit this website. This is a demo/portfolio
-        project — no real personal data is processed, stored on a server, or shared with third
-        parties.
-      </p>
+  <section class="pb-16 sm:pb-24 relative z-10">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="glass-card p-6 sm:p-10 space-y-6 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+        <p
+          class="text-base text-slate-700 dark:text-slate-200 border-b border-slate-200/80 dark:border-white/[0.08] pb-4"
+        >
+          This Privacy Policy explains how FMS IT Solution PLC collects, uses, and safeguards information when you visit
+          our website or contact our game studio.
+        </p>
 
-      <h2>1. Information We Collect</h2>
-      <p>
-        This site may collect limited information you voluntarily provide, such as your name,
-        email address, and message when using the Contact form. Cart and Wishlist selections are
-        stored only in your browser's local storage and are never sent to or stored on a server.
-      </p>
+        <div class="space-y-2">
+          <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">1. Information We Collect</h2>
+          <p>
+            When you submit an inquiry through our contact form, we collect the details you voluntarily provide: your
+            name, email address, project topic, and message.
+          </p>
+        </div>
 
-      <h2>2. How We Use Information</h2>
-      <p>
-        Any information submitted through the Contact form is used solely to respond to your
-        inquiry. We do not sell, rent, or share this information with third parties.
-      </p>
+        <div class="space-y-2">
+          <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">2. How We Use Your Information</h2>
+          <p>
+            Information submitted is used exclusively to evaluate project feasibility and respond to your communication.
+            We never sell, lease, or share your contact information with external parties.
+          </p>
+        </div>
 
-      <h2>3. Cookies &amp; Local Storage</h2>
-      <p>
-        This site uses your browser's local storage to remember items you add to your Cart or
-        Wishlist. This data stays on your device and is not accessible to us. No tracking cookies
-        or third-party advertising scripts are used on this site.
-      </p>
+        <div class="space-y-2">
+          <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+            3. Data Security & Confidentiality
+          </h2>
+          <p>
+            We adhere to strict data security standards and client confidentiality practices. Project concepts,
+            storylines, and proprietary mechanics shared with us remain strictly confidential.
+          </p>
+        </div>
 
-      <h2>4. Third-Party Services</h2>
-      <p>
-        The Contact form on this site may use a third-party form service (e.g. Formspree) to
-        deliver messages by email. Please refer to that provider's own privacy policy for details
-        on how they handle submitted data.
-      </p>
-
-      <h2>5. Data Security</h2>
-      <p>
-        We take reasonable measures to protect any information submitted through this site.
-        However, no method of transmission over the internet is 100% secure.
-      </p>
-
-      <h2>6. Children's Privacy</h2>
-      <p>
-        This site is not directed at children under 13, and we do not knowingly collect personal
-        information from children.
-      </p>
-
-      <h2>7. Changes to This Policy</h2>
-      <p>
-        We may update this Privacy Policy from time to time. Changes will be posted on this page
-        with an updated "Last updated" date.
-      </p>
-
-      <h2>8. Contact Us</h2>
-      <p>
-        If you have questions about this Privacy Policy, please reach out via the
-        <a href="/contact">Contact page</a>.
-      </p>
+        <div class="space-y-2">
+          <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">4. Contact Us</h2>
+          <p>
+            If you have questions regarding this Privacy Policy, please reach out via our <a
+              href="/contact"
+              class="text-emerald-600 dark:text-emerald-400 underline font-medium hover:text-emerald-500"
+              >Contact page</a
+            > or email <a
+              href="mailto:ceo@fms.et"
+              class="text-emerald-600 dark:text-emerald-400 underline font-medium hover:text-emerald-500">ceo@fms.et</a
+            >.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 </PageLayout>
-
-<style>
-  .page-hero {
-    background: linear-gradient(135deg, var(--brand-purple-dark), var(--brand-purple-darker));
-    color: #fff;
-    text-align: center;
-    padding: 3.5rem 1.5rem;
-  }
-  .page-hero h1 {
-    color: #fff;
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-  }
-  .updated {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.85rem;
-  }
-
-  .section {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 3rem 1.5rem;
-  }
-
-  .legal-content .intro {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.7;
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .legal-content h2 {
-    font-size: 1.1rem;
-    color: var(--text-dark);
-    margin: 2rem 0 0.75rem;
-  }
-  .legal-content h2:first-of-type {
-    margin-top: 0;
-  }
-
-  .legal-content p {
-    color: var(--text-muted);
-    font-size: 0.92rem;
-    line-height: 1.75;
-  }
-
-  .legal-content a {
-    color: var(--brand-purple);
-    text-decoration: underline;
-  }
-  .legal-content a:hover {
-    color: var(--brand-purple-dark);
-  }
-</style>

@@ -1,128 +1,76 @@
 ---
-
+// src/pages/terms.astro
 import PageLayout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Terms of Service — ~DemoGames',
+  title: 'Terms of Service | FMS IT Solution PLC',
+  description: 'Terms of service for FMS IT Solution PLC website and engagement.',
 };
 
 const lastUpdated = 'August 2026';
 ---
 
 <PageLayout metadata={metadata}>
-  <section class="page-hero">
-    <h1>Terms of Service</h1>
-    <p class="updated">Last updated: {lastUpdated}</p>
+  <section class="pt-8 pb-10 sm:pt-12 sm:pb-14 text-center relative z-10">
+    <div class="max-w-3xl mx-auto px-4 space-y-3">
+      <div
+        class="inline-flex items-center gap-2 px-4 py-1 rounded-full text-xs font-medium bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 dark:text-emerald-300"
+      >
+        <span>Legal Documentation</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Terms of Service</h1>
+      <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Last updated: {lastUpdated}</p>
+    </div>
   </section>
 
-  <section class="section">
-    <div class="legal-content">
-      <p class="intro">
-        By accessing or using this website, you agree to be bound by these Terms of Service. This
-        is a demo/portfolio project — the store, cart, and checkout features simulate a real
-        e-commerce flow but do not process real payments or deliver real products.
-      </p>
+  <section class="pb-16 sm:pb-24 relative z-10">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="glass-card p-6 sm:p-10 space-y-6 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+        <p
+          class="text-base text-slate-700 dark:text-slate-200 border-b border-slate-200/80 dark:border-white/[0.08] pb-4"
+        >
+          By accessing or using this website, you agree to be bound by these Terms of Service.
+        </p>
 
-      <h2>1. Use of This Site</h2>
-      <p>
-        This website and its content are provided for demonstration and portfolio purposes. You
-        may browse the site and use its demo features (such as the Cart and Wishlist) freely, but
-        no purchase made through this site is real or binding.
-      </p>
+        <div class="space-y-2">
+          <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">1. Use of Website</h2>
+          <p>
+            This website provides information about game development services and capabilities offered by FMS IT
+            Solution PLC. You may browse and submit inquiries for legitimate business collaborations.
+          </p>
+        </div>
 
-      <h2>2. Demo Store Disclaimer</h2>
-      <p>
-        The "Buy Now," "Add to Wishlist," and "Checkout" features on this site are simulated. No
-        real payment is collected, no order is fulfilled, and no game or product is delivered.
-        Prices shown are for demonstration purposes only.
-      </p>
+        <div class="space-y-2">
+          <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">2. Intellectual Property</h2>
+          <p>
+            All original graphics, trademarks, logos, and written content on this website are the property of FMS IT
+            Solution PLC or their respective holders. Commercial production projects follow formal contracts with full
+            client IP transfer upon milestone completion.
+          </p>
+        </div>
 
-      <h2>3. Intellectual Property</h2>
-      <p>
-        Unless otherwise stated, all content on this site — including text, images, and game
-        artwork — is used for demonstration purposes as part of a portfolio project and remains
-        the property of its respective owner.
-      </p>
+        <div class="space-y-2">
+          <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">3. Inquiries & Proposals</h2>
+          <p>
+            Submissions via our contact form represent requests for consultation and preliminary project estimation.
+            Formal development agreements are governed by signed production contracts and scopes of work.
+          </p>
+        </div>
 
-      <h2>4. User Conduct</h2>
-      <p>
-        You agree not to misuse this site, attempt to disrupt its functionality, or use it for any
-        unlawful purpose.
-      </p>
-
-      <h2>5. Limitation of Liability</h2>
-      <p>
-        This site is provided "as is" without warranties of any kind. We are not liable for any
-        damages arising from your use of this site.
-      </p>
-
-      <h2>6. Changes to These Terms</h2>
-      <p>
-        We may update these Terms of Service from time to time. Continued use of the site after
-        changes are posted constitutes acceptance of the updated terms.
-      </p>
-
-      <h2>7. Contact Us</h2>
-      <p>
-        If you have questions about these Terms, please reach out via the
-        <a href="/contact">Contact page</a>.
-      </p>
+        <div class="space-y-2">
+          <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">4. Contact Us</h2>
+          <p>
+            If you have questions about these Terms, please reach out via our <a
+              href="/contact"
+              class="text-emerald-600 dark:text-emerald-400 underline font-medium hover:text-emerald-500"
+              >Contact page</a
+            > or email <a
+              href="mailto:ceo@fms.et"
+              class="text-emerald-600 dark:text-emerald-400 underline font-medium hover:text-emerald-500">ceo@fms.et</a
+            >.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 </PageLayout>
-
-<style>
-  .page-hero {
-    background: linear-gradient(135deg, var(--brand-purple-dark), var(--brand-purple-darker));
-    color: #fff;
-    text-align: center;
-    padding: 3.5rem 1.5rem;
-  }
-  .page-hero h1 {
-    color: #fff;
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-  }
-  .updated {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.85rem;
-  }
-
-  .section {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 3rem 1.5rem;
-  }
-
-  .legal-content .intro {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.7;
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .legal-content h2 {
-    font-size: 1.1rem;
-    color: var(--text-dark);
-    margin: 2rem 0 0.75rem;
-  }
-  .legal-content h2:first-of-type {
-    margin-top: 0;
-  }
-
-  .legal-content p {
-    color: var(--text-muted);
-    font-size: 0.92rem;
-    line-height: 1.75;
-  }
-
-  .legal-content a {
-    color: var(--brand-purple);
-    text-decoration: underline;
-  }
-  .legal-content a:hover {
-    color: var(--brand-purple-dark);
-  }
-</style>

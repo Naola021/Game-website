@@ -1,209 +1,313 @@
 ---
-
+// src/pages/services.astro
 import PageLayout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Services — ~DemoGames',
+  title: 'Services — Game Development Capabilities | FMS IT Solution PLC',
+  description:
+    'Full-cycle game development, gameplay design, 3D art & animation, economy balancing, and multi-store publishing.',
 };
 
 const services = [
-  { icon: '🎨', title: 'Game Design', detail: 'Concepting, prototyping, and design systems for new titles.' },
-  { icon: '💻', title: 'Development', detail: 'Full-cycle development across PC, console, and mobile.' },
-  { icon: '🚀', title: 'Publishing', detail: 'Bringing finished titles to market across major storefronts.' },
-  { icon: '🤝', title: 'Co-Development', detail: 'Partnering with other studios on scope, art, or engineering.' },
-  { icon: '🛠️', title: 'Support & Live Ops', detail: 'Post-launch updates, patches, and live game operations.' },
+  {
+    id: 'game-design',
+    number: '01',
+    title: 'GAMEPLAY DESIGN & CONCEPT',
+    headline: 'Turning ideas into playable, high-retention game blueprints.',
+    body: 'We shape mechanics, reward pacing, progression curves, and core loops that keep players invested from session one.',
+    deliverables: [
+      'Core game loop & mechanics documentation',
+      'Player progression & reward trees',
+      'Level design & playable graybox prototypes',
+      'User experience (UX) & interface flows',
+    ],
+  },
+  {
+    id: 'full-cycle',
+    number: '02',
+    title: 'FULL-CYCLE GAME ENGINEERING',
+    headline: 'High-performance gameplay engineering across all major platforms.',
+    body: 'From initial prototype to final release, our engineers build stable games optimized to run smoothly across target devices.',
+    deliverables: [
+      'Modern game engine production pipelines',
+      'Multi-platform deployment (Mobile, PC, WebGL)',
+      'Multiplayer networking & backend architecture',
+      'Custom physics, input systems & shaders',
+    ],
+  },
+  {
+    id: 'game-art',
+    number: '03',
+    title: '3D ART, RIGGING & ANIMATION',
+    headline: 'Bespoke visual worlds, stylized characters, and polished VFX.',
+    body: 'Our artists create memorable 2D and 3D visual styles that bring game worlds to life with rich color and fluid animation.',
+    deliverables: [
+      '3D character modeling, rigging & skinning',
+      '2D concept art, environment assets & textures',
+      'Custom visual effects (VFX) & particle systems',
+      'Diegetic and stylized UI/UX component sets',
+    ],
+  },
+  {
+    id: 'monetization',
+    number: '04',
+    title: 'ECONOMY & LEVEL BALANCING',
+    headline: 'Smooth in-game economies that reward player dedication.',
+    body: 'We design fair, sustainable economies, battle passes, and non-intrusive cosmetic features that feel rewarding.',
+    deliverables: [
+      'In-game currency & reward economy balancing',
+      'Rewarded flow & optional engagement loops',
+      'Battle pass & seasonal progression trees',
+      'Player retention & difficulty curve tuning',
+    ],
+  },
+  {
+    id: 'publishing',
+    number: '05',
+    title: 'MULTI-STORE PUBLISHING & CERTIFICATION',
+    headline: 'Smooth deployment across global app stores and web portals.',
+    body: 'We handle store compliance, build certification, and platform requirements so your game reaches players seamlessly.',
+    deliverables: [
+      'App Store & Google Play compliance & submission',
+      'Store page graphics, trailers & screenshots',
+      'Platform certification & hardware compatibility',
+      'Soft-launch testing & feedback collection',
+    ],
+  },
+  {
+    id: 'live-ops',
+    number: '06',
+    title: 'LIVE OPS & CONTENT UPDATES',
+    headline: 'Keeping your game fresh and exciting long after launch.',
+    body: 'We deliver continuous updates, seasonal events, and gameplay balance adjustments to keep the community active.',
+    deliverables: [
+      'Seasonal events & themed content drops',
+      'Crash analytics & telemetry monitoring',
+      'Gameplay balance patches & new level packs',
+      'Server maintenance & performance updates',
+    ],
+  },
 ];
 
 const faqs = [
   {
-    q: 'What does the engagement process look like?',
-    a: 'We start with a scoping call to understand your project, follow with a proposal and timeline, then move into iterative development with regular check-ins.',
+    question: 'What types of games do you build?',
+    answer:
+      'We build a wide variety of 2D and 3D games across mobile, PC, and web browsers (WebGL/HTML5) — including action, adventure, puzzle, simulation, and narrative-driven titles.',
   },
   {
-    q: 'What platforms do you develop for?',
-    a: 'PC, major consoles, and mobile (iOS/Android) — the right target platform depends on the project.',
+    question: 'Which game engines and tools do you specialize in?',
+    answer:
+      'Our studio builds with industry-standard game engines and custom WebGL frameworks for instant browser games, backed by robust server architecture for multiplayer titles.',
+  },
+  {
+    question: 'Can we start with a small playable prototype?',
+    answer:
+      'Yes. We frequently begin with a focused prototyping phase to prove the core gameplay loop and mechanics before committing full production resources.',
+  },
+  {
+    question: 'Do you work alongside existing teams, or build turnkey?',
+    answer:
+      'We handle complete turnkey production from scratch, or integrate directly with your internal creative and technical team to accelerate development.',
   },
 ];
 ---
 
 <PageLayout metadata={metadata}>
-  <div class="page-gradient">
-  <!-- Hero -->
-  <section class="page-hero">
-    <h1>Services</h1>
-  </section>
+  <!-- Grand Hero Banner with Specular White Gradient Ending Edge -->
+  <section
+    class="hero-grand-canvas pt-28 pb-16 sm:pt-36 sm:pb-24 rounded-b-[2.5rem] sm:rounded-b-[4rem] text-white relative z-20"
+  >
+    <div class="flute-overlay"></div>
 
-  <!-- Services we give -->
-  <section class="section">
-    <h2 class="section-title">Services we give</h2>
-    <div class="services-grid">
-      {
-        services.map((s) => (
-          <div class="service-card">
-            <div class="service-icon">{s.icon}</div>
-            <h3>{s.title}</h3>
-            <p class="service-detail">{s.detail}</p>
-          </div>
-        ))
-      }
+    <!-- Specular White Gradient Ending Edge -->
+    <div class="hero-white-edge"></div>
+    <div class="hero-white-glow"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
+      <!-- Sleek Black Badge -->
+      <div
+        class="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-black/60 border border-white/20 text-white/90 backdrop-blur-md mb-6 shadow-xs"
+      >
+        <span>OUR CAPABILITIES</span>
+      </div>
+
+      <!-- Architectural Headline -->
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight text-white leading-[1.05]">
+        Game Development<br />
+        <span class="bg-gradient-to-r from-emerald-400 via-emerald-300 to-[#0CDAFC] bg-clip-text text-transparent"
+          >Services</span
+        >
+      </h1>
+
+      <p class="mt-5 text-sm sm:text-base lg:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed font-normal">
+        From initial concepts and vision to custom gameplay, beautiful visual design, and final deployment.
+      </p>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="section">
-    <h2 class="section-title">FAQ</h2>
-    <div class="faq-list" id="faqList">
-      {
-        faqs.map((faq, i) => (
-          <div class="faq-item" data-index={i}>
-            <button class="faq-question">
-              <span>{faq.q}</span>
-              <span class="faq-icon">↓</span>
-            </button>
-            <div class="faq-answer">
-              <p>{faq.a}</p>
+  <!-- 6 In-Depth Services Grid -->
+  <section class="py-16 sm:py-24 relative z-10 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+        {
+          services.map((service) => (
+            <div id={service.id} class="scroll-mt-28">
+              <div class="editorial-card p-6 sm:p-8 h-full flex flex-col justify-between group">
+                <div class="space-y-4">
+                  {/* Top Row */}
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-1.5 font-mono text-xs">
+                      <span class="font-bold text-emerald-600">{service.number}</span>
+                      <span class="text-[#0684D9] font-medium text-[11px]">// CAPABILITY</span>
+                    </div>
+                  </div>
+
+                  {/* Service Title */}
+                  <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight uppercase group-hover:text-emerald-600 transition-colors">
+                    {service.title}
+                  </h2>
+
+                  {/* Headline */}
+                  <p class="text-xs sm:text-sm font-medium text-emerald-700 italic">"{service.headline}"</p>
+
+                  {/* Body */}
+                  <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">{service.body}</p>
+
+                  {/* Key Deliverables */}
+                  <div class="pt-4 space-y-2 border-t border-slate-200/80">
+                    <span class="text-xs font-bold uppercase tracking-widest text-slate-700 block mb-2">
+                      Key Deliverables
+                    </span>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {service.deliverables.map((item) => (
+                        <div class="flex items-start gap-2 text-xs text-slate-600">
+                          <span class="w-1.5 h-1.5 rounded-full bg-[#0CDAFC] mt-1.5 shrink-0 shadow-[0_0_6px_rgba(12,218,252,0.6)]" />
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Action Link */}
+                <div class="pt-5 mt-5 border-t border-slate-200/80">
+                  <a
+                    href="/contact"
+                    class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-900 group-hover:text-emerald-600 transition-colors"
+                  >
+                    <span>Inquire About This Service →</span>
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-        ))
-      }
+          ))
+        }
+      </div>
     </div>
   </section>
-  </div>
-</PageLayout>
 
-<script>
-  const items = document.querySelectorAll('.faq-item');
-  items.forEach((item) => {
-    item.querySelector('.faq-question')?.addEventListener('click', () => {
-      const isOpen = item.classList.contains('open');
-      items.forEach((i) => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
+  <!-- Dark Luxury FAQ Guide Container (inside Light Section) -->
+  <section class="py-16 sm:py-24 relative z-10 bg-white border-t border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-3xl bg-[#060c08] text-white p-8 sm:p-12 lg:p-16 border border-white/[0.08] shadow-2xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          <!-- Left Column -->
+          <div class="lg:col-span-5 space-y-4">
+            <span
+              class="text-xs font-bold uppercase tracking-widest bg-gradient-to-r from-emerald-400 to-[#0CDAFC] bg-clip-text text-transparent block"
+            >
+              Support
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white leading-tight">
+              Frequently Asked<br />Questions
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+              Find quick answers about our development workflow, technology stack, and milestones.
+            </p>
+          </div>
+
+          <!-- Right Column: Accordion List -->
+          <div class="lg:col-span-7 space-y-3" id="serviceFaqAccordion">
+            {
+              faqs.map((faq, index) => (
+                <div class="faq-item border-b border-white/[0.08] pb-3">
+                  <button
+                    type="button"
+                    class="faq-toggle w-full py-4 text-left flex items-center justify-between gap-4 cursor-pointer select-none group"
+                    aria-expanded={index === 0 ? 'true' : 'false'}
+                  >
+                    <span class="text-sm sm:text-base font-semibold text-white group-hover:text-emerald-400 transition-colors">
+                      {faq.question}
+                    </span>
+                    <span class="faq-icon text-lg font-mono text-[#0CDAFC] shrink-0">{index === 0 ? '−' : '+'}</span>
+                  </button>
+                  <div
+                    class:list={[
+                      'faq-content text-xs sm:text-sm text-slate-400 leading-relaxed pb-3',
+                      index === 0 ? 'block' : 'hidden',
+                    ]}
+                  >
+                    {faq.answer}
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing Studio Banner -->
+  <section
+    class="py-14 sm:py-20 relative z-10 bg-white dark:bg-[#09120c] border-t border-slate-200/80 dark:border-white/[0.06]"
+  >
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-5">
+      <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 block">
+        Start A Project
+      </span>
+      <h2 class="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white uppercase tracking-tight">
+        Ready to build your game?
+      </h2>
+      <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-xl mx-auto leading-relaxed">
+        Let’s bring your game vision to life
+      </p>
+      <div class="pt-3">
+        <a href="/contact" class="btn-pill-emerald text-sm px-8 py-4">
+          <span>LET'S GET IN TOUCH →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion Script -->
+  <script>
+    const toggles = document.querySelectorAll('#serviceFaqAccordion .faq-toggle');
+
+    toggles.forEach((toggle) => {
+      toggle.addEventListener('click', () => {
+        const item = toggle.closest('.faq-item');
+        const content = item?.querySelector('.faq-content');
+        const icon = item?.querySelector('.faq-icon');
+        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+        // Close all others
+        toggles.forEach((t) => {
+          const otherItem = t.closest('.faq-item');
+          const otherContent = otherItem?.querySelector('.faq-content');
+          const otherIcon = otherItem?.querySelector('.faq-icon');
+          t.setAttribute('aria-expanded', 'false');
+          otherContent?.classList.add('hidden');
+          if (otherIcon) otherIcon.textContent = '+';
+        });
+
+        if (!isExpanded) {
+          toggle.setAttribute('aria-expanded', 'true');
+          content?.classList.remove('hidden');
+          if (icon) icon.textContent = '−';
+        }
+      });
     });
-  });
-</script>
-
-<style>
-    .page-gradient {
-    background: var(--page-gradient);
-  }
-
-  .page-hero {
-    background-image: url('/serves.png');
-    /* background: linear-gradient(135deg, var(--brand-purple-dark), var(--brand-purple-darker)); */
-    height: 250px;
-
-      color: #fff;
-    padding: 6rem 1.5rem;
-    text-align: center;
-    
-  }
-  .page-hero h1 {
-    color: #fff;
-    font-size: 3rem;
-    font-weight: 900;
-  }
-
-  .section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 3rem 1.5rem;
-  }
-  .section-title {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    text-align: left;
-    color: var(--text-dark);
-  }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-  }
-  .service-card {
-   border: 1px solid rgb(60, 3, 94);
-    border-radius: 10px;
-    padding: 1.5rem;
-    text-align: center;
-    transition: box-shadow 0.15s ease, transform 0.15s ease;
-    overflow: hidden;
-  }
-  .service-card:hover {
-    box-shadow: 0 10px 24px rgba(124, 58, 237, 0.15);
-    border-color: var(--brand-purple);
-    transform: translateY(-2px);
-  }
-  .service-icon {
-    font-size: 1.75rem;
-    margin-bottom: 0.5rem;
-  }
-  .service-card h3 {
-    font-size: 1rem;
-    color: var(--text-dark);
-    margin-bottom: 0.5rem;
-  }
-  .service-detail {
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    max-height: 0;
-    opacity: 0;
-    transition: max-height 0.2s ease, opacity 0.2s ease;
-  }
-  .service-card:hover .service-detail {
-    max-height: 100px;
-    opacity: 1;
-  }
-
-  .faq-list {
-    max-width: 700px;
-  }
-  .faq-item {
-    border-bottom: 1px solid var(--border-color);
-  }
-  .faq-question {
-    width: 100%;
-    background: none;
-    border: none;
-    padding: 1.1rem 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: left;
-    font-size: 0.95rem;
-    font-weight: 500;
-    cursor: pointer;
-    color: var(--text-dark);
-  }
-  .faq-icon {
-    color: var(--brand-purple);
-    transition: transform 0.2s ease;
-  }
-  .faq-item.open .faq-icon {
-    transform: rotate(180deg);
-  }
-  .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.25s ease;
-  }
-  .faq-item.open .faq-answer {
-    max-height: 200px;
-  }
-  .faq-answer p {
-    padding-bottom: 1.1rem;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    line-height: 1.6;
-  }
-
-  @media (max-width: 768px) {
-    .services-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-  @media (max-width: 480px) {
-    .services-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
+  </script>
+</PageLayout>

@@ -8,14 +8,14 @@ This site showcases the studio's games, services, past projects, and team, and p
 
 **Pages:**
 
-| Page | Route | Description |
-|---|---|---|
-| Home | `/` | Hero, featured products, featured projects, services overview, contact CTA |
-| Services | `/services` | What the studio offers, plus FAQ |
-| Products | `/products` | Games developed/published, with filters |
-| Projects | `/projects` | Portfolio of client/co-development work |
-| About | `/about` | Studio story, timeline, team, mission & vision |
-| Contact | `/contact` | Contact form (with validation), studio details, map |
+| Page     | Route       | Description                                                                |
+| -------- | ----------- | -------------------------------------------------------------------------- |
+| Home     | `/`         | Hero, featured products, featured projects, services overview, contact CTA |
+| Services | `/services` | What the studio offers, plus FAQ                                           |
+| Products | `/products` | Games developed/published, with filters                                    |
+| Projects | `/projects` | Portfolio of client/co-development work                                    |
+| About    | `/about`    | Studio story, timeline, team, mission & vision                             |
+| Contact  | `/contact`  | Contact form (with validation), studio details, map                        |
 
 Full architecture and page-behavior documentation: [`docs/architecture.md`](./docs/architecture.md).
 
@@ -46,12 +46,12 @@ Then open **http://localhost:4321** in your browser.
 
 ### Other commands
 
-| Command | What it does |
-|---|---|
-| `npm run dev` | Start local dev server with live reload |
-| `npm run build` | Build the production site to `./dist/` |
-| `npm run preview` | Preview the production build locally |
-| `npm run check` | Check the project for errors |
+| Command           | What it does                            |
+| ----------------- | --------------------------------------- |
+| `npm run dev`     | Start local dev server with live reload |
+| `npm run build`   | Build the production site to `./dist/`  |
+| `npm run preview` | Preview the production build locally    |
+| `npm run check`   | Check the project for errors            |
 
 ## Project Structure
 
@@ -85,7 +85,7 @@ Open the relevant file in `src/pages/`. Each page has its own scoped `<style>` b
 
 ## Still To Do
 
-- [ ] Replace placeholder content  with real copy
+- [ ] Replace placeholder content with real copy
 - [ ] Add real game/project images, team photos, and hero background
 - [ ] Update `src/config.yaml` with final site name and SEO metadata
 - [ ] Add real studio address for the Contact page map
