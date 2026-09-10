@@ -34,17 +34,17 @@ const navLinks = [
       <!-- Brand Logo - Clean, High-Contrast & Sleek -->
       <a href="/" class="logo-link flex items-center gap-3.5 group">
         <div
-          class="logo-badge relative w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center p-2 group-hover:border-emerald-400 group-hover:scale-105 transition-all duration-300 shadow-lg backdrop-blur-md"
+          class="logo-badge relative w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#04090d]/80 border border-[#10D9FD]/40 flex items-center justify-center p-2 group-hover:border-[#10D9FD] group-hover:scale-105 transition-all duration-300 shadow-lg backdrop-blur-md"
         >
           <img src="/logo.svg" alt="FMS IT Solution PLC Logo" class="w-full h-full object-contain filter drop-shadow" />
         </div>
         <div class="flex flex-col">
           <span
-            class="text-base sm:text-lg font-black tracking-tight text-white leading-tight group-hover:text-emerald-400 transition-colors drop-shadow-sm"
+            class="text-base sm:text-lg font-black tracking-tight text-white leading-tight group-hover:text-[#10D9FD] transition-colors drop-shadow-sm"
           >
             FMS IT Solution
           </span>
-          <span class="text-[10px] sm:text-[11px] uppercase tracking-widest text-emerald-400 font-bold">
+          <span class="text-[10px] sm:text-[11px] uppercase tracking-widest text-[#10D9FD] font-bold">
             Game Studio
           </span>
         </div>
@@ -52,7 +52,7 @@ const navLinks = [
 
       <!-- Desktop Nav Links - Floating Glass Capsule -->
       <nav
-        class="hidden md:flex items-center gap-1.5 bg-black/40 border border-white/15 rounded-full px-3.5 py-1.5 backdrop-blur-xl shadow-2xl"
+        class="hidden md:flex items-center gap-1.5 bg-[#04090d]/60 border border-white/15 rounded-full px-3.5 py-1.5 backdrop-blur-xl shadow-2xl"
       >
         {
           navLinks.map((link) => {
@@ -62,7 +62,7 @@ const navLinks = [
                 href={link.href}
                 class:list={[
                   'relative px-4 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-full transition-all duration-200',
-                  isActive ? 'text-white bg-emerald-600 shadow-md' : 'text-white/80 hover:text-white hover:bg-white/10',
+                  isActive ? 'text-[#04090d] bg-[#10D9FD] font-bold shadow-md shadow-[#10D9FD]/20' : 'text-white/80 hover:text-white hover:bg-white/10',
                 ]}
               >
                 {link.name}
@@ -90,7 +90,7 @@ const navLinks = [
         type="button"
         id="mobileMenuBtn"
         aria-label="Toggle Navigation Menu"
-        class="md:hidden p-2.5 rounded-full text-white bg-black/40 border border-white/15 backdrop-blur-xl transition-colors shadow-lg"
+        class="md:hidden p-2.5 rounded-full text-white bg-[#04090d]/80 border border-white/15 backdrop-blur-xl transition-colors shadow-lg"
       >
         <svg id="hamburgerIcon" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
           ><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line
@@ -113,7 +113,7 @@ const navLinks = [
     <!-- Mobile Drawer Menu -->
     <div
       id="mobileDrawer"
-      class="hidden md:hidden mt-3 mx-auto max-w-lg rounded-3xl bg-[#060c08]/95 backdrop-blur-2xl border border-white/15 p-5 shadow-2xl text-white"
+      class="hidden md:hidden mt-3 mx-auto max-w-lg rounded-3xl bg-[#04090d]/95 backdrop-blur-2xl border border-white/15 p-5 shadow-2xl text-white"
     >
       <div class="flex flex-col gap-2">
         {
@@ -124,11 +124,11 @@ const navLinks = [
                 href={link.href}
                 class:list={[
                   'px-4 py-3 rounded-2xl text-sm font-semibold uppercase tracking-wider flex items-center justify-between transition-colors',
-                  isActive ? 'bg-emerald-600 text-white' : 'text-slate-300 hover:bg-white/[0.06] hover:text-white',
+                  isActive ? 'bg-[#10D9FD] text-[#04090d] font-bold' : 'text-slate-300 hover:bg-white/[0.06] hover:text-white',
                 ]}
               >
                 <span>{link.name}</span>
-                {isActive && <span class="w-2 h-2 rounded-full bg-white" />}
+                {isActive && <span class="w-2 h-2 rounded-full bg-[#04090d]" />}
               </a>
             );
           })
@@ -152,7 +152,7 @@ const navLinks = [
   </main>
 
   <!-- Architectural Studio Dark Footer -->
-  <footer class="relative z-10 bg-[#060c08] text-white pt-16 pb-12 overflow-hidden border-t border-white/[0.06]">
+  <footer class="relative z-10 bg-[#06120e] text-white pt-16 pb-12 overflow-hidden border-t border-white/[0.06]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <!-- Footer Main Columns -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-white/[0.08]">
@@ -160,13 +160,13 @@ const navLinks = [
         <div class="lg:col-span-5 space-y-5">
           <a href="/" class="flex items-center gap-3.5 inline-flex">
             <div
-              class="w-12 h-12 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center p-2 shadow-md"
+              class="w-12 h-12 rounded-2xl bg-[#0A2419] border border-[#10D9FD]/40 flex items-center justify-center p-2 shadow-md"
             >
               <img src="/logo.svg" alt="FMS IT Solution Logo" class="w-full h-full object-contain" />
             </div>
             <div class="flex flex-col">
               <span class="text-xl font-black text-white tracking-tight"> FMS IT Solution PLC </span>
-              <span class="text-[11px] uppercase tracking-widest text-emerald-400 font-bold">
+              <span class="text-[11px] uppercase tracking-widest text-[#10D9FD] font-bold">
                 Game Development Studio
               </span>
             </div>
@@ -182,9 +182,9 @@ const navLinks = [
         <div class="lg:col-span-2 space-y-3">
           <h3 class="text-xs font-bold text-slate-300 uppercase tracking-widest">Privacy & Legal</h3>
           <ul class="space-y-2.5 text-xs text-slate-400">
-            <li><a href="/privacy" class="hover:text-emerald-400 transition-colors">Privacy Policy</a></li>
-            <li><a href="/terms" class="hover:text-emerald-400 transition-colors">Terms of Service</a></li>
-            <li><a href="/contact" class="hover:text-emerald-400 transition-colors">Project Inquiries</a></li>
+            <li><a href="/privacy" class="hover:text-[#10D9FD] transition-colors">Privacy Policy</a></li>
+            <li><a href="/terms" class="hover:text-[#10D9FD] transition-colors">Terms of Service</a></li>
+            <li><a href="/contact" class="hover:text-[#10D9FD] transition-colors">Project Inquiries</a></li>
           </ul>
         </div>
 
@@ -192,10 +192,10 @@ const navLinks = [
         <div class="lg:col-span-2 space-y-3">
           <h3 class="text-xs font-bold text-slate-300 uppercase tracking-widest">Pages</h3>
           <ul class="space-y-2.5 text-xs text-slate-400">
-            <li><a href="/" class="hover:text-emerald-400 transition-colors">Home</a></li>
-            <li><a href="/services" class="hover:text-emerald-400 transition-colors">Services</a></li>
-            <li><a href="/about" class="hover:text-emerald-400 transition-colors">About Studio</a></li>
-            <li><a href="/contact" class="hover:text-emerald-400 transition-colors">Contact</a></li>
+            <li><a href="/" class="hover:text-[#10D9FD] transition-colors">Home</a></li>
+            <li><a href="/services" class="hover:text-[#10D9FD] transition-colors">Services</a></li>
+            <li><a href="/about" class="hover:text-[#10D9FD] transition-colors">About Studio</a></li>
+            <li><a href="/contact" class="hover:text-[#10D9FD] transition-colors">Contact</a></li>
           </ul>
         </div>
 
@@ -204,23 +204,23 @@ const navLinks = [
           <h3 class="text-xs font-bold text-slate-300 uppercase tracking-widest">Capabilities</h3>
           <ul class="space-y-2.5 text-xs text-slate-400">
             <li>
-              <a href="/services#game-design" class="hover:text-emerald-400 transition-colors"
+              <a href="/services#game-design" class="hover:text-[#10D9FD] transition-colors"
                 >Game Design & Blueprinting</a
               >
             </li>
             <li>
-              <a href="/services#full-cycle" class="hover:text-emerald-400 transition-colors"
+              <a href="/services#full-cycle" class="hover:text-[#10D9FD] transition-colors"
                 >Full-Cycle Game Engineering</a
               >
             </li>
             <li>
-              <a href="/services#game-art" class="hover:text-emerald-400 transition-colors">3D Art, VFX & Shaders</a>
+              <a href="/services#game-art" class="hover:text-[#10D9FD] transition-colors">3D Art, VFX & Shaders</a>
             </li>
             <li>
-              <a href="/services#monetization" class="hover:text-emerald-400 transition-colors">Economy & Balancing</a>
+              <a href="/services#monetization" class="hover:text-[#10D9FD] transition-colors">Economy & Balancing</a>
             </li>
             <li>
-              <a href="/services#live-ops" class="hover:text-emerald-400 transition-colors"
+              <a href="/services#live-ops" class="hover:text-[#10D9FD] transition-colors"
                 >Live Ops & Multi-Store Launch</a
               >
             </li>
@@ -252,7 +252,7 @@ const navLinks = [
     const updateHeader = () => {
       if (window.scrollY > 25) {
         header?.classList.add(
-          'bg-[#060c08]/35',
+          'bg-[#04090d]/50',
           'backdrop-blur-md',
           'border-b',
           'border-white/[0.06]',
@@ -262,7 +262,7 @@ const navLinks = [
         header?.classList.remove('py-4');
       } else {
         header?.classList.remove(
-          'bg-[#060c08]/35',
+          'bg-[#04090d]/50',
           'backdrop-blur-md',
           'border-b',
           'border-white/[0.06]',
@@ -301,14 +301,14 @@ const navLinks = [
       --bg-main: #ffffff;
       --bg-surface: #ffffff;
       --bg-surface-elevated: #f8fafc;
-      --color-primary: #059669;
+      --color-primary: #10D9FD;
     }
 
     .dark {
-      --bg-main: #060c08;
-      --bg-surface: #0a120d;
-      --bg-surface-elevated: #0f1912;
-      --color-primary: #10b981;
+      --bg-main: #04090d;
+      --bg-surface: #07131b;
+      --bg-surface-elevated: #0a1b26;
+      --color-primary: #10D9FD;
     }
 
     body {

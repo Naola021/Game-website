@@ -94,9 +94,9 @@ const faqs = [
     <div class="hero-white-glow"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
-      <!-- Sleek Black Badge -->
+      <!-- Sleek Dark Badge -->
       <div
-        class="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-black/60 border border-white/20 text-white/90 backdrop-blur-md mb-6 sm:mb-8 shadow-xs"
+        class="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#04090d]/60 border border-[#10D9FD]/30 text-white/95 backdrop-blur-md mb-6 sm:mb-8 shadow-xs"
       >
         <span>Game Development Studio</span>
       </div>
@@ -106,7 +106,7 @@ const faqs = [
         class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight text-white leading-[1.02] max-w-5xl"
       >
         DESIGN. DEVELOP.<br />
-        <span class="bg-gradient-to-r from-emerald-400 via-emerald-300 to-[#0CDAFC] bg-clip-text text-transparent"
+        <span class="bg-gradient-to-r from-white via-[#58DEF7] to-[#10D9FD] bg-clip-text text-transparent"
           >DELIVER.</span
         >
       </h1>
@@ -126,7 +126,7 @@ const faqs = [
         </a>
         <a
           href="/services"
-          class="btn-pill-dark bg-[#080d0a] hover:bg-black border border-white/20 text-white font-semibold text-xs tracking-wider uppercase px-8 py-4 w-full sm:w-auto shadow-xl"
+          class="btn-pill-dark text-xs tracking-wider uppercase px-8 py-4 w-full sm:w-auto shadow-xl"
         >
           <span>EXPLORE SERVICES</span>
         </a>
@@ -139,7 +139,7 @@ const faqs = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Section Intro -->
       <div class="text-center max-w-3xl mx-auto space-y-3 mb-12 sm:mb-16">
-        <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 block"> Core Focus Areas </span>
+        <span class="text-xs font-bold uppercase tracking-widest text-[#0684D9] block"> Core Focus Areas </span>
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 uppercase tracking-tight leading-tight">
           Built for High Performance & Engagement
         </h2>
@@ -152,12 +152,12 @@ const faqs = [
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {
           coreDisciplines.map((item) => (
-            <div class="editorial-card p-6 sm:p-7 flex flex-col justify-between group">
+            <div class="editorial-card p-6 sm:p-7 flex flex-col justify-between group hover:border-[#10D9FD]/40">
               <div class="space-y-3">
-                <span class="text-xs font-mono font-bold text-emerald-600 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20 inline-block group-hover:border-[#0CDAFC]/40 group-hover:text-[#0684D9] transition-colors">
+                <span class="text-xs font-mono font-bold text-[#0684D9] bg-[#10D9FD]/10 px-2.5 py-1 rounded-md border border-[#10D9FD]/30 inline-block group-hover:border-[#10D9FD] group-hover:text-[#10D9FD] transition-colors">
                   {item.number}
                 </span>
-                <h3 class="text-base sm:text-lg font-bold text-slate-900 uppercase tracking-tight group-hover:text-emerald-600 transition-colors">
+                <h3 class="text-base sm:text-lg font-bold text-slate-900 uppercase tracking-tight group-hover:text-[#0684D9] transition-colors">
                   {item.title}
                 </h3>
                 <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">{item.desc}</p>
@@ -175,7 +175,7 @@ const faqs = [
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
         <!-- Left: Story Narrative -->
         <div class="lg:col-span-6 space-y-5">
-          <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 block"> OUR APPROACH </span>
+          <span class="text-xs font-bold uppercase tracking-widest text-[#0684D9] block"> OUR APPROACH </span>
           <h2 class="text-3xl sm:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">
             Turning Bold Game Ideas Into Playable Reality
           </h2>
@@ -197,16 +197,16 @@ const faqs = [
 
         <!-- Right: 2 Light Editorial Highlight Cards -->
         <div class="lg:col-span-6 space-y-4">
-          <div class="editorial-card p-6 sm:p-7 space-y-2 group">
+          <div class="editorial-card p-6 sm:p-7 space-y-2 group hover:border-[#10D9FD]/40">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-1 font-mono text-xs">
-                <span class="font-bold text-emerald-600">01</span>
+                <span class="font-bold text-[#0684D9]">01</span>
                 <span class="text-[#0684D9] font-medium text-[11px]">// MILESTONE-DRIVEN</span>
               </div>
               <span class="text-[10px] font-mono text-slate-500 uppercase">Milestone-Based</span>
             </div>
             <h3
-              class="text-base sm:text-lg font-bold text-slate-900 uppercase tracking-tight group-hover:text-emerald-600 transition-colors"
+              class="text-base sm:text-lg font-bold text-slate-900 uppercase tracking-tight group-hover:text-[#0684D9] transition-colors"
             >
               Playable Milestone Sprints
             </h3>
@@ -216,16 +216,16 @@ const faqs = [
             </p>
           </div>
 
-          <div class="editorial-card p-6 sm:p-7 space-y-2 group">
+          <div class="editorial-card p-6 sm:p-7 space-y-2 group hover:border-[#10D9FD]/40">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-1 font-mono text-xs">
-                <span class="font-bold text-emerald-600">02</span>
+                <span class="font-bold text-[#0684D9]">02</span>
                 <span class="text-[#0684D9] font-medium text-[11px]">// FULL OWNERSHIP</span>
               </div>
               <span class="text-[10px] font-mono text-slate-500 uppercase">100% IP & Code</span>
             </div>
             <h3
-              class="text-base sm:text-lg font-bold text-slate-900 uppercase tracking-tight group-hover:text-emerald-600 transition-colors"
+              class="text-base sm:text-lg font-bold text-slate-900 uppercase tracking-tight group-hover:text-[#0684D9] transition-colors"
             >
               Complete Asset & Code Transfer
             </h3>
@@ -245,7 +245,7 @@ const faqs = [
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
         <!-- Left Column -->
         <div class="lg:col-span-5 space-y-4 lg:sticky lg:top-28">
-          <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 block"> OUR CAPABILITIES </span>
+          <span class="text-xs font-bold uppercase tracking-widest text-[#0684D9] block"> OUR CAPABILITIES </span>
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 uppercase tracking-tight leading-tight">
             Creative<br />Services
           </h2>
@@ -263,14 +263,14 @@ const faqs = [
         <div class="lg:col-span-7 space-y-4">
           {
             capabilities.map((cap) => (
-              <div class="rounded-2xl sm:rounded-3xl p-6 sm:p-7 bg-[#060c08] border border-white/[0.08] text-white shadow-xl hover:border-[#0CDAFC]/30 transition-all duration-300 space-y-2 group">
+              <div class="rounded-2xl sm:rounded-3xl p-6 sm:p-7 bg-[#0A2419]/80 border border-white/[0.08] text-white shadow-xl hover:border-[#10D9FD]/40 transition-all duration-300 space-y-2 group">
                 <div class="flex items-center justify-between">
-                  <span class="text-xs font-mono font-bold text-[#0CDAFC]">{cap.number}</span>
-                  <span class="text-[11px] font-mono text-slate-400 uppercase group-hover:text-[#0CDAFC] transition-colors">
+                  <span class="text-xs font-mono font-bold text-[#10D9FD]">{cap.number}</span>
+                  <span class="text-[11px] font-mono text-slate-400 uppercase group-hover:text-[#10D9FD] transition-colors">
                     {cap.tag}
                   </span>
                 </div>
-                <h3 class="text-base sm:text-lg font-bold text-white tracking-tight uppercase group-hover:text-emerald-400 transition-colors">
+                <h3 class="text-base sm:text-lg font-bold text-white tracking-tight uppercase group-hover:text-[#10D9FD] transition-colors">
                   {cap.title}
                 </h3>
                 <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">{cap.desc}</p>
@@ -285,12 +285,12 @@ const faqs = [
   <!-- Dark Luxury General FAQs Guide Section -->
   <section class="py-16 sm:py-24 relative z-10 bg-white border-t border-slate-200/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="rounded-3xl bg-[#060c08] text-white p-8 sm:p-12 lg:p-16 border border-white/[0.08] shadow-2xl">
+      <div class="rounded-3xl bg-[#0A2419]/85 text-white p-8 sm:p-12 lg:p-16 border border-white/[0.08] shadow-2xl">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
           <!-- Left Column -->
           <div class="lg:col-span-5 space-y-4">
             <span
-              class="text-xs font-bold uppercase tracking-widest bg-gradient-to-r from-emerald-400 to-[#0CDAFC] bg-clip-text text-transparent block"
+              class="text-xs font-bold uppercase tracking-widest bg-gradient-to-r from-white via-[#58DEF7] to-[#10D9FD] bg-clip-text text-transparent block"
             >
               Support
             </span>
@@ -312,10 +312,10 @@ const faqs = [
                     class="faq-toggle w-full py-4 text-left flex items-center justify-between gap-4 cursor-pointer select-none group"
                     aria-expanded={index === 0 ? 'true' : 'false'}
                   >
-                    <span class="text-sm sm:text-base font-semibold text-white group-hover:text-emerald-400 transition-colors">
+                    <span class="text-sm sm:text-base font-semibold text-white group-hover:text-[#10D9FD] transition-colors">
                       {faq.question}
                     </span>
-                    <span class="faq-icon text-lg font-mono text-[#0CDAFC] shrink-0">{index === 0 ? '−' : '+'}</span>
+                    <span class="faq-icon text-lg font-mono text-[#10D9FD] shrink-0">{index === 0 ? '−' : '+'}</span>
                   </button>
                   <div
                     class:list={[
@@ -336,10 +336,10 @@ const faqs = [
 
   <!-- Closing Studio Banner -->
   <section
-    class="py-14 sm:py-20 relative z-10 bg-slate-50 dark:bg-[#09120c] border-t border-slate-200/80 dark:border-white/[0.06]"
+    class="py-14 sm:py-20 relative z-10 bg-slate-50 border-t border-slate-200/80"
   >
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-5">
-      <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 block">
+      <span class="text-xs font-bold uppercase tracking-widest text-[#0684D9] block">
         Start Your Game
       </span>
       <h2 class="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white uppercase tracking-tight">
