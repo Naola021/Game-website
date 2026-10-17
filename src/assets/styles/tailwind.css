@@ -61,21 +61,23 @@
   gap: 0.5rem;
   padding: 0.75rem 1.625rem;
   border-radius: 9999px;
-  background-color: #0f1712;
+  background-color: #0a2419;
+  border: 1px solid rgba(16, 217, 253, 0.3);
   color: #ffffff;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 14px rgba(10, 36, 25, 0.45);
   cursor: pointer;
 }
 
 .btn-pill-dark:hover {
-  background-color: #050806;
+  background-color: #0e3525;
+  border-color: rgba(16, 217, 253, 0.7);
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 6px 20px rgba(16, 217, 253, 0.25);
 }
 
 .btn-pill-dark:active {
@@ -90,7 +92,7 @@
   padding: 0.75rem 1.625rem;
   border-radius: 9999px;
   background-color: #ffffff;
-  color: #0f1712;
+  color: #04090d;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -113,32 +115,40 @@
   gap: 0.5rem;
   padding: 0.75rem 1.625rem;
   border-radius: 9999px;
-  background-color: #059669;
-  color: #ffffff;
+  background-color: #10d9fd;
+  color: #04090d;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.25);
+  box-shadow: 0 4px 16px rgba(16, 217, 253, 0.35);
   cursor: pointer;
 }
 
 .btn-pill-emerald:hover {
-  background-color: #047857;
+  background-color: #0684d9;
+  color: #ffffff;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.35);
+  box-shadow: 0 6px 22px rgba(6, 132, 217, 0.5);
 }
 
-/* Grand Hero Canvas with Pine Depth & Specular White Gradient Ending Edge */
+/* Grand Hero Canvas with Lighter & Vibrant #10D9FD Cyan Illumination & Specular Ending Edge */
 .hero-grand-canvas {
   position: relative;
-  background: radial-gradient(circle at 50% 20%, #154530 0%, #0c2b1e 40%, #071912 85%, #05120d 100%);
+  background:
+    radial-gradient(
+      ellipse 90% 65% at 50% -5%,
+      rgba(16, 217, 253, 0.38) 0%,
+      rgba(6, 132, 217, 0.22) 45%,
+      transparent 75%
+    ),
+    radial-gradient(circle at 50% 20%, #0e3d57 0%, #092739 38%, #051722 70%, #030b11 100%);
   overflow: hidden;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow:
-    0 15px 40px -10px rgba(0, 0, 0, 0.5),
-    0 0 30px rgba(255, 255, 255, 0.06);
+    0 20px 50px -10px rgba(0, 0, 0, 0.6),
+    0 0 50px rgba(16, 217, 253, 0.15);
 }
 
 /* Specular White Ending Edge Glow */
@@ -196,27 +206,27 @@
 }
 
 .editorial-card:hover {
-  border-color: rgba(16, 185, 129, 0.4);
+  border-color: rgba(16, 217, 253, 0.45);
   box-shadow:
-    0 10px 30px -5px rgba(0, 0, 0, 0.06),
+    0 10px 30px -5px rgba(16, 217, 253, 0.08),
     0 4px 12px -2px rgba(0, 0, 0, 0.03);
   transform: translateY(-2px);
 }
 
 .dark .editorial-card {
-  background: #0f1612;
+  background: #04090d;
   border: 1px solid rgba(255, 255, 255, 0.07);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .dark .editorial-card:hover {
-  border-color: rgba(52, 211, 153, 0.3);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  border-color: rgba(16, 217, 253, 0.35);
+  box-shadow: 0 8px 30px rgba(16, 217, 253, 0.15);
 }
 
 /* Luxury Dark Team Card */
 .dark-team-card {
-  background: #0a120d;
+  background: #04090d;
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 1.5rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -236,9 +246,9 @@
 }
 
 .dark-team-card:hover {
-  border-color: rgba(16, 185, 129, 0.45);
+  border-color: rgba(16, 217, 253, 0.5);
   box-shadow:
     0 15px 40px rgba(0, 0, 0, 0.7),
-    0 0 25px rgba(16, 185, 129, 0.15);
+    0 0 25px rgba(16, 217, 253, 0.2);
   transform: translateY(-3px);
 }

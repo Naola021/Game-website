@@ -13,7 +13,6 @@ const services = [
     id: 'game-design',
     number: '01',
     title: 'GAMEPLAY DESIGN & CONCEPT',
-    headline: 'Turning ideas into playable, high-retention game blueprints.',
     body: 'We shape mechanics, reward pacing, progression curves, and core loops that keep players invested from session one.',
     deliverables: [
       'Core game loop & mechanics documentation',
@@ -26,7 +25,6 @@ const services = [
     id: 'full-cycle',
     number: '02',
     title: 'FULL-CYCLE GAME ENGINEERING',
-    headline: 'High-performance gameplay engineering across all major platforms.',
     body: 'From initial prototype to final release, our engineers build stable games optimized to run smoothly across target devices.',
     deliverables: [
       'Modern game engine production pipelines',
@@ -39,7 +37,6 @@ const services = [
     id: 'game-art',
     number: '03',
     title: '3D ART, RIGGING & ANIMATION',
-    headline: 'Bespoke visual worlds, stylized characters, and polished VFX.',
     body: 'Our artists create memorable 2D and 3D visual styles that bring game worlds to life with rich color and fluid animation.',
     deliverables: [
       '3D character modeling, rigging & skinning',
@@ -52,7 +49,6 @@ const services = [
     id: 'monetization',
     number: '04',
     title: 'ECONOMY & LEVEL BALANCING',
-    headline: 'Smooth in-game economies that reward player dedication.',
     body: 'We design fair, sustainable economies, battle passes, and non-intrusive cosmetic features that feel rewarding.',
     deliverables: [
       'In-game currency & reward economy balancing',
@@ -65,7 +61,6 @@ const services = [
     id: 'publishing',
     number: '05',
     title: 'MULTI-STORE PUBLISHING & CERTIFICATION',
-    headline: 'Smooth deployment across global app stores and web portals.',
     body: 'We handle store compliance, build certification, and platform requirements so your game reaches players seamlessly.',
     deliverables: [
       'App Store & Google Play compliance & submission',
@@ -78,7 +73,6 @@ const services = [
     id: 'live-ops',
     number: '06',
     title: 'LIVE OPS & CONTENT UPDATES',
-    headline: 'Keeping your game fresh and exciting long after launch.',
     body: 'We deliver continuous updates, seasonal events, and gameplay balance adjustments to keep the community active.',
     deliverables: [
       'Seasonal events & themed content drops',
@@ -125,9 +119,9 @@ const faqs = [
     <div class="hero-white-glow"></div>
 
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
-      <!-- Sleek Black Badge -->
+      <!-- Sleek Dark Badge -->
       <div
-        class="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-black/60 border border-white/20 text-white/90 backdrop-blur-md mb-6 shadow-xs"
+        class="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#0A2419] border border-[#10D9FD]/40 text-white/95 backdrop-blur-md mb-6 shadow-md"
       >
         <span>OUR CAPABILITIES</span>
       </div>
@@ -135,7 +129,7 @@ const faqs = [
       <!-- Architectural Headline -->
       <h1 class="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight text-white leading-[1.05]">
         Game Development<br />
-        <span class="bg-gradient-to-r from-emerald-400 via-emerald-300 to-[#0CDAFC] bg-clip-text text-transparent"
+        <span class="bg-gradient-to-r from-white via-[#58DEF7] to-[#10D9FD] bg-clip-text text-transparent"
           >Services</span
         >
       </h1>
@@ -146,59 +140,54 @@ const faqs = [
     </div>
   </section>
 
-  <!-- 6 In-Depth Services Grid -->
+  <!-- Service Cards Section -->
   <section class="py-16 sm:py-24 relative z-10 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
         {
           services.map((service) => (
-            <div id={service.id} class="scroll-mt-28">
-              <div class="editorial-card p-6 sm:p-8 h-full flex flex-col justify-between group">
-                <div class="space-y-4">
-                  {/* Top Row */}
-                  <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-1.5 font-mono text-xs">
-                      <span class="font-bold text-emerald-600">{service.number}</span>
-                      <span class="text-[#0684D9] font-medium text-[11px]">// CAPABILITY</span>
-                    </div>
-                  </div>
-
-                  {/* Service Title */}
-                  <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight uppercase group-hover:text-emerald-600 transition-colors">
-                    {service.title}
-                  </h2>
-
-                  {/* Headline */}
-                  <p class="text-xs sm:text-sm font-medium text-emerald-700 italic">"{service.headline}"</p>
-
-                  {/* Body */}
-                  <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">{service.body}</p>
-
-                  {/* Key Deliverables */}
-                  <div class="pt-4 space-y-2 border-t border-slate-200/80">
-                    <span class="text-xs font-bold uppercase tracking-widest text-slate-700 block mb-2">
-                      Key Deliverables
-                    </span>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                      {service.deliverables.map((item) => (
-                        <div class="flex items-start gap-2 text-xs text-slate-600">
-                          <span class="w-1.5 h-1.5 rounded-full bg-[#0CDAFC] mt-1.5 shrink-0 shadow-[0_0_6px_rgba(12,218,252,0.6)]" />
-                          <span>{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+            <div id={service.id} class="editorial-card p-6 sm:p-9 space-y-6 flex flex-col justify-between">
+              <div class="space-y-4">
+                {/* Card Header */}
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-mono font-bold text-[#0684D9] uppercase tracking-wider">
+                    {service.number} // CAPABILITY
+                  </span>
                 </div>
 
-                {/* Action Link */}
-                <div class="pt-5 mt-5 border-t border-slate-200/80">
-                  <a
-                    href="/contact"
-                    class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-900 group-hover:text-emerald-600 transition-colors"
-                  >
-                    <span>Inquire About This Service →</span>
-                  </a>
+                {/* Service Title */}
+                <div>
+                  <h2 class="text-2xl font-black text-slate-900 tracking-tight uppercase">{service.title}</h2>
                 </div>
+
+                {/* Service Body */}
+                <p class="text-sm text-slate-600 leading-relaxed">{service.body}</p>
+
+                {/* Key Deliverables List */}
+                <div class="pt-2 border-t border-slate-200/80 dark:border-white/[0.08] space-y-2.5">
+                  <span class="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white block">
+                    Key Deliverables
+                  </span>
+                  <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-600 dark:text-slate-300">
+                    {service.deliverables.map((item) => (
+                      <li class="flex items-start gap-2">
+                        <span class="w-2 h-2 rounded-full bg-[#10D9FD] mt-1 shrink-0 shadow-[0_0_6px_rgba(16,217,253,0.6)]" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {/* CTA / Inquire Link */}
+              <div class="pt-4 border-t border-slate-200/80 dark:border-white/[0.08]">
+                <a
+                  href="/contact"
+                  class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white hover:text-[#10D9FD] transition-colors"
+                >
+                  <span>Inquire About This Service</span>
+                  <span class="text-sm">→</span>
+                </a>
               </div>
             </div>
           ))
@@ -207,15 +196,15 @@ const faqs = [
     </div>
   </section>
 
-  <!-- Dark Luxury FAQ Guide Container (inside Light Section) -->
+  <!-- Dark Luxury General FAQs Guide Section -->
   <section class="py-16 sm:py-24 relative z-10 bg-white border-t border-slate-200/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="rounded-3xl bg-[#060c08] text-white p-8 sm:p-12 lg:p-16 border border-white/[0.08] shadow-2xl">
+      <div class="rounded-3xl bg-[#04090D] text-white p-8 sm:p-12 lg:p-16 border border-white/[0.08] shadow-2xl">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
           <!-- Left Column -->
           <div class="lg:col-span-5 space-y-4">
             <span
-              class="text-xs font-bold uppercase tracking-widest bg-gradient-to-r from-emerald-400 to-[#0CDAFC] bg-clip-text text-transparent block"
+              class="text-xs font-bold uppercase tracking-widest bg-gradient-to-r from-white via-[#58DEF7] to-[#10D9FD] bg-clip-text text-transparent block"
             >
               Support
             </span>
@@ -237,10 +226,10 @@ const faqs = [
                     class="faq-toggle w-full py-4 text-left flex items-center justify-between gap-4 cursor-pointer select-none group"
                     aria-expanded={index === 0 ? 'true' : 'false'}
                   >
-                    <span class="text-sm sm:text-base font-semibold text-white group-hover:text-emerald-400 transition-colors">
+                    <span class="text-sm sm:text-base font-semibold text-white group-hover:text-[#10D9FD] transition-colors">
                       {faq.question}
                     </span>
-                    <span class="faq-icon text-lg font-mono text-[#0CDAFC] shrink-0">{index === 0 ? '−' : '+'}</span>
+                    <span class="faq-icon text-lg font-mono text-[#10D9FD] shrink-0">{index === 0 ? '−' : '+'}</span>
                   </button>
                   <div
                     class:list={[
@@ -260,17 +249,11 @@ const faqs = [
   </section>
 
   <!-- Closing Studio Banner -->
-  <section
-    class="py-14 sm:py-20 relative z-10 bg-white dark:bg-[#09120c] border-t border-slate-200/80 dark:border-white/[0.06]"
-  >
+  <section class="py-14 sm:py-20 relative z-10 bg-slate-50 border-t border-slate-200/80">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-5">
-      <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 block">
-        Start A Project
-      </span>
-      <h2 class="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white uppercase tracking-tight">
-        Ready to build your game?
-      </h2>
-      <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-xl mx-auto leading-relaxed">
+      <span class="text-xs font-bold uppercase tracking-widest text-[#0684D9] block"> Start A Project </span>
+      <h2 class="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight">Ready to build your game?</h2>
+      <p class="text-sm sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
         Let’s bring your game vision to life
       </p>
       <div class="pt-3">

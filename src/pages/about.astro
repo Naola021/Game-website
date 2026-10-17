@@ -5,7 +5,7 @@ import PageLayout from '~/layouts/PageLayout.astro';
 const metadata = {
   title: 'About Us — FMS IT Solution PLC',
   description:
-    'FMS IT Solution PLC is a game development studio dedicated to crafting engaging interactive experiences for mobile, PC, and web.',
+    'FMS IT Solution PLC engineers digital foundations, immersive ecosystems, exceptional online gaming platforms, cutting-edge software solutions, and resilient telecom architectures.',
 };
 
 const team = [
@@ -70,9 +70,9 @@ const pillars = [
     <div class="hero-white-glow"></div>
 
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
-      <!-- Sleek Black Badge -->
+      <!-- Sleek Dark Badge -->
       <div
-        class="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-black/60 border border-white/20 text-white/90 backdrop-blur-md mb-6 shadow-xs"
+        class="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#0A2419] border border-[#10D9FD]/40 text-white/95 backdrop-blur-md mb-6 shadow-md"
       >
         <span>Game Development Studio</span>
       </div>
@@ -80,7 +80,7 @@ const pillars = [
       <!-- Architectural Headline -->
       <h1 class="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight text-white leading-[1.05]">
         The Team Behind<br />
-        <span class="bg-gradient-to-r from-emerald-400 via-emerald-300 to-[#0CDAFC] bg-clip-text text-transparent"
+        <span class="bg-gradient-to-r from-white via-[#58DEF7] to-[#10D9FD] bg-clip-text text-transparent"
           >The Games</span
         >
       </h1>
@@ -92,71 +92,93 @@ const pillars = [
     </div>
   </section>
 
-  <!-- Editorial Story Section -->
-  <section class="py-16 sm:py-24 relative z-10 bg-white dark:bg-[#060c08]">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-        <!-- Left: Story Narrative -->
-        <div class="lg:col-span-6 space-y-4">
-          <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 block">
-            Our Mission
-          </span>
-          <h2
-            class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white uppercase tracking-tight leading-tight"
-          >
-            Crafting Memorable Games with Technical Precision
-          </h2>
-          <div class="space-y-3.5 text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed pt-1">
-            <p>
-              FMS IT Solution PLC was founded on the belief that standout games emerge when artistic vision meets
-              disciplined engineering.
+  <!-- Vision, Mission & Values Section -->
+  <section class="py-16 sm:py-24 relative z-10 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+        <!-- Left: Vision & Mission Statements (Col Span 7) -->
+        <div class="lg:col-span-7 space-y-6 flex flex-col justify-between">
+          <!-- Vision Statement Card -->
+          <div class="editorial-card p-6 sm:p-8 space-y-3 group hover:border-[#10D9FD]/50 transition-colors">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#10D9FD] shrink-0 shadow-[0_0_8px_rgba(16,217,253,0.6)]"></span>
+              <span class="text-xs font-bold uppercase tracking-widest text-[#0684D9] block"> Vision Statement </span>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-black text-slate-900 uppercase tracking-tight">
+              Powering Future Entertainment & Digital Ecosystems
+            </h2>
+            <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+              To engineer the digital foundations and immersive ecosystems that power the future of entertainment,
+              connectivity, and enterprise performance globally.
             </p>
-            <p>
-              Whether creating original titles or collaborating with visionary creators to bring ambitious worlds to
-              life, our team is committed to delivering memorable player experiences with zero compromise on
-              performance.
+          </div>
+
+          <!-- Mission Statement Card -->
+          <div class="editorial-card p-6 sm:p-8 space-y-3 group hover:border-[#10D9FD]/50 transition-colors">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#10D9FD] shrink-0 shadow-[0_0_8px_rgba(16,217,253,0.6)]"></span>
+              <span class="text-xs font-bold uppercase tracking-widest text-[#0684D9] block"> Mission Statement </span>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-black text-slate-900 uppercase tracking-tight">
+              Delivering Resilient, Limitless Scale
+            </h2>
+            <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+              To deliver exceptional online gaming platforms, cutting-edge software solutions, robust API-as-a-Service
+              infrastructure, and resilient telecom architectures that empower businesses to scale seamlessly and engage
+              audiences without limits.
             </p>
           </div>
         </div>
 
-        <!-- Right: Studio Values Card (Dark Glassmorphic) -->
-        <div class="lg:col-span-6">
-          <div class="rounded-3xl bg-[#0a140e] border border-white/[0.09] p-6 sm:p-8 space-y-6 text-white shadow-xl">
-            <h3 class="text-lg font-bold text-white uppercase tracking-tight">OUR VALUES</h3>
-            <div class="space-y-4">
-              <div class="flex items-start gap-3">
-                <span
-                  class="w-2.5 h-2.5 rounded-full bg-[#0CDAFC] mt-1.5 shrink-0 shadow-[0_0_8px_rgba(12,218,252,0.6)]"
-                ></span>
-                <div>
-                  <h4 class="text-sm font-bold text-white uppercase">Player-First Feel</h4>
-                  <p class="text-xs text-slate-300 mt-0.5 leading-relaxed">
-                    Prioritizing intuitive controls, rewarding feedback, and smooth frame rates.
-                  </p>
+        <!-- Right: Our Values Card (Dark Glassmorphic Col Span 5) -->
+        <div class="lg:col-span-5 flex">
+          <div
+            class="rounded-3xl bg-[#04090D] border border-white/[0.08] p-6 sm:p-8 space-y-6 text-white shadow-xl w-full flex flex-col justify-between"
+          >
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-white/[0.08]">
+                <h3 class="text-lg font-bold text-white uppercase tracking-tight">OUR VALUES</h3>
+                <span class="text-[11px] font-mono text-[#10D9FD]">// CORE PILLARS</span>
+              </div>
+              <div class="space-y-4.5 mt-5">
+                <div class="flex items-start gap-3">
+                  <span
+                    class="w-2.5 h-2.5 rounded-full bg-[#10D9FD] mt-1.5 shrink-0 shadow-[0_0_8px_rgba(16,217,253,0.6)]"
+                  ></span>
+                  <div>
+                    <h4 class="text-sm font-bold text-white uppercase">Player-First Feel</h4>
+                    <p class="text-xs text-slate-300 mt-0.5 leading-relaxed">
+                      Prioritizing intuitive controls, rewarding feedback, and smooth frame rates.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span
+                    class="w-2.5 h-2.5 rounded-full bg-[#10D9FD] mt-1.5 shrink-0 shadow-[0_0_8px_rgba(16,217,253,0.6)]"
+                  ></span>
+                  <div>
+                    <h4 class="text-sm font-bold text-white uppercase">Milestone Clarity</h4>
+                    <p class="text-xs text-slate-300 mt-0.5 leading-relaxed">
+                      Regular sprint checkpoints with playable builds to keep everyone aligned.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span
+                    class="w-2.5 h-2.5 rounded-full bg-[#10D9FD] mt-1.5 shrink-0 shadow-[0_0_8px_rgba(16,217,253,0.6)]"
+                  ></span>
+                  <div>
+                    <h4 class="text-sm font-bold text-white uppercase">Modular Code</h4>
+                    <p class="text-xs text-slate-300 mt-0.5 leading-relaxed">
+                      Clean, scalable architecture engineered for effortless live updates and expansion.
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div class="flex items-start gap-3">
-                <span
-                  class="w-2.5 h-2.5 rounded-full bg-[#0CDAFC] mt-1.5 shrink-0 shadow-[0_0_8px_rgba(12,218,252,0.6)]"
-                ></span>
-                <div>
-                  <h4 class="text-sm font-bold text-white uppercase">Milestone Clarity</h4>
-                  <p class="text-xs text-slate-300 mt-0.5 leading-relaxed">
-                    Regular sprint checkpoints with playable builds to keep everyone aligned.
-                  </p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <span
-                  class="w-2.5 h-2.5 rounded-full bg-[#0CDAFC] mt-1.5 shrink-0 shadow-[0_0_8px_rgba(12,218,252,0.6)]"
-                ></span>
-                <div>
-                  <h4 class="text-sm font-bold text-white uppercase">Modular Code</h4>
-                  <p class="text-xs text-slate-300 mt-0.5 leading-relaxed">
-                    Clean, scalable architecture engineered for effortless live updates and expansion.
-                  </p>
-                </div>
-              </div>
+            </div>
+
+            <div class="pt-4 border-t border-white/[0.08] text-xs text-slate-400 font-mono">
+              FMS IT Solution PLC &mdash; Addis Ababa, Ethiopia
             </div>
           </div>
         </div>
@@ -168,7 +190,7 @@ const pillars = [
   <section class="py-16 sm:py-24 relative z-10 bg-slate-50 border-y border-slate-200/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto space-y-3 mb-12 sm:mb-16">
-        <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 block"> Leadership </span>
+        <span class="text-xs font-bold uppercase tracking-widest text-[#0684D9] block"> Leadership </span>
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 uppercase leading-tight">
           Meet Our Team
         </h2>
@@ -180,9 +202,9 @@ const pillars = [
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {
           team.map((member) => (
-            <div class="rounded-3xl bg-[#0d1810] border border-white/[0.08] p-6 text-white flex flex-col items-center text-center group hover:border-[#0CDAFC]/30 transition-all duration-300 shadow-xl">
+            <div class="rounded-3xl bg-[#04090d] border border-white/[0.08] p-6 text-white flex flex-col items-center text-center group hover:border-[#10D9FD]/40 transition-all duration-300 shadow-xl">
               {/* Avatar */}
-              <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden mb-5 border-2 border-white/10 group-hover:border-[#0CDAFC]/40 transition-colors shadow-md">
+              <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden mb-5 border-2 border-white/10 group-hover:border-[#10D9FD]/50 transition-colors shadow-md">
                 <img
                   src={member.photo}
                   alt={member.name}
@@ -191,12 +213,12 @@ const pillars = [
               </div>
 
               {/* Name */}
-              <h3 class="text-base sm:text-lg font-bold text-white uppercase tracking-tight group-hover:text-emerald-400 transition-colors">
+              <h3 class="text-base sm:text-lg font-bold text-white uppercase tracking-tight group-hover:text-[#10D9FD] transition-colors">
                 {member.name}
               </h3>
 
               {/* Role */}
-              <span class="text-xs font-bold uppercase tracking-wider text-[#0CDAFC] mt-1 mb-3 block">
+              <span class="text-xs font-bold uppercase tracking-wider text-[#10D9FD] mt-1 mb-3 block">
                 {member.role}
               </span>
 
@@ -215,13 +237,11 @@ const pillars = [
   <section class="py-16 sm:py-24 relative z-10 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto space-y-3 mb-12 sm:mb-16">
-        <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 block"> OUR STANDARDS </span>
-        <h2
-          class="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 dark:text-white uppercase leading-tight"
-        >
+        <span class="text-xs font-bold uppercase tracking-widest text-[#0684D9] block"> OUR STANDARDS </span>
+        <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 uppercase leading-tight">
           Why Work With Us
         </h2>
-        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+        <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
           The foundational principles guiding every project we deliver.
         </p>
       </div>
@@ -229,13 +249,13 @@ const pillars = [
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
         {
           pillars.map((item) => (
-            <div class="editorial-card p-6 sm:p-7 flex gap-4 items-start">
-              <span class="w-2.5 h-2.5 rounded-full bg-[#0CDAFC] mt-2 shrink-0 shadow-[0_0_8px_rgba(12,218,252,0.6)]" />
+            <div class="editorial-card p-6 sm:p-7 flex gap-4 items-start group hover:border-[#10D9FD]/40">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#10D9FD] mt-2 shrink-0 shadow-[0_0_8px_rgba(16,217,253,0.6)]" />
               <div class="space-y-1">
-                <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white uppercase tracking-tight">
+                <h3 class="text-base sm:text-lg font-bold text-slate-900 uppercase tracking-tight group-hover:text-[#0684D9] transition-colors">
                   {item.title}
                 </h3>
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{item.description}</p>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">{item.description}</p>
               </div>
             </div>
           ))
@@ -245,17 +265,13 @@ const pillars = [
   </section>
 
   <!-- Closing Studio Banner -->
-  <section
-    class="py-14 sm:py-20 relative z-10 bg-slate-50 dark:bg-[#09120c] border-t border-slate-200/80 dark:border-white/[0.06]"
-  >
+  <section class="py-14 sm:py-20 relative z-10 bg-slate-50 border-t border-slate-200/80">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-5">
-      <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 block">
-        Start A Conversation
-      </span>
-      <h2 class="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white uppercase tracking-tight">
+      <span class="text-xs font-bold uppercase tracking-widest text-[#0684D9] block"> Start A Conversation </span>
+      <h2 class="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight">
         Have a game idea?<br />Let's bring it to life.
       </h2>
-      <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-xl mx-auto leading-relaxed">
+      <p class="text-sm sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
         Let’s bring your game vision to life
       </p>
       <div class="pt-3">
