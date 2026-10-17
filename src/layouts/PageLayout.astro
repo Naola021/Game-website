@@ -34,7 +34,7 @@ const navLinks = [
       <!-- Brand Logo - Clean, High-Contrast & Sleek -->
       <a href="/" class="logo-link flex items-center gap-3.5 group">
         <div
-          class="logo-badge relative w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#04090d]/80 border border-[#10D9FD]/40 flex items-center justify-center p-2 group-hover:border-[#10D9FD] group-hover:scale-105 transition-all duration-300 shadow-lg backdrop-blur-md"
+          class="logo-badge relative w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#0A2419] border border-[#10D9FD]/40 flex items-center justify-center p-2 group-hover:border-[#10D9FD] group-hover:scale-105 transition-all duration-300 shadow-lg backdrop-blur-md"
         >
           <img src="/logo.svg" alt="FMS IT Solution PLC Logo" class="w-full h-full object-contain filter drop-shadow" />
         </div>
@@ -62,7 +62,9 @@ const navLinks = [
                 href={link.href}
                 class:list={[
                   'relative px-4 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-full transition-all duration-200',
-                  isActive ? 'text-[#04090d] bg-[#10D9FD] font-bold shadow-md shadow-[#10D9FD]/20' : 'text-white/80 hover:text-white hover:bg-white/10',
+                  isActive
+                    ? 'text-[#04090d] bg-[#10D9FD] font-bold shadow-md shadow-[#10D9FD]/20'
+                    : 'text-white/80 hover:text-white hover:bg-white/10',
                 ]}
               >
                 {link.name}
@@ -124,7 +126,9 @@ const navLinks = [
                 href={link.href}
                 class:list={[
                   'px-4 py-3 rounded-2xl text-sm font-semibold uppercase tracking-wider flex items-center justify-between transition-colors',
-                  isActive ? 'bg-[#10D9FD] text-[#04090d] font-bold' : 'text-slate-300 hover:bg-white/[0.06] hover:text-white',
+                  isActive
+                    ? 'bg-[#10D9FD] text-[#04090d] font-bold'
+                    : 'text-slate-300 hover:bg-white/[0.06] hover:text-white',
                 ]}
               >
                 <span>{link.name}</span>
@@ -152,7 +156,7 @@ const navLinks = [
   </main>
 
   <!-- Architectural Studio Dark Footer -->
-  <footer class="relative z-10 bg-[#06120e] text-white pt-16 pb-12 overflow-hidden border-t border-white/[0.06]">
+  <footer class="relative z-10 bg-[#04090D] text-white pt-16 pb-12 overflow-hidden border-t border-white/[0.06]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <!-- Footer Main Columns -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-white/[0.08]">
@@ -301,14 +305,14 @@ const navLinks = [
       --bg-main: #ffffff;
       --bg-surface: #ffffff;
       --bg-surface-elevated: #f8fafc;
-      --color-primary: #10D9FD;
+      --color-primary: #10d9fd;
     }
 
     .dark {
       --bg-main: #04090d;
       --bg-surface: #07131b;
       --bg-surface-elevated: #0a1b26;
-      --color-primary: #10D9FD;
+      --color-primary: #10d9fd;
     }
 
     body {

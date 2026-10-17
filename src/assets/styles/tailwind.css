@@ -61,23 +61,23 @@
   gap: 0.5rem;
   padding: 0.75rem 1.625rem;
   border-radius: 9999px;
-  background-color: #0A2419;
-  border: 1px solid rgba(16, 217, 253, 0.25);
+  background-color: #0a2419;
+  border: 1px solid rgba(16, 217, 253, 0.3);
   color: #ffffff;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 14px rgba(10, 36, 25, 0.4);
+  box-shadow: 0 4px 14px rgba(10, 36, 25, 0.45);
   cursor: pointer;
 }
 
 .btn-pill-dark:hover {
-  background-color: #0e3323;
-  border-color: rgba(16, 217, 253, 0.6);
+  background-color: #0e3525;
+  border-color: rgba(16, 217, 253, 0.7);
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(16, 217, 253, 0.2);
+  box-shadow: 0 6px 20px rgba(16, 217, 253, 0.25);
 }
 
 .btn-pill-dark:active {
@@ -115,7 +115,7 @@
   gap: 0.5rem;
   padding: 0.75rem 1.625rem;
   border-radius: 9999px;
-  background-color: #10D9FD;
+  background-color: #10d9fd;
   color: #04090d;
   font-size: 0.75rem;
   font-weight: 700;
@@ -127,7 +127,7 @@
 }
 
 .btn-pill-emerald:hover {
-  background-color: #0684D9;
+  background-color: #0684d9;
   color: #ffffff;
   transform: translateY(-1px);
   box-shadow: 0 6px 22px rgba(6, 132, 217, 0.5);
@@ -137,7 +137,12 @@
 .hero-grand-canvas {
   position: relative;
   background:
-    radial-gradient(ellipse 90% 65% at 50% -5%, rgba(16, 217, 253, 0.38) 0%, rgba(6, 132, 217, 0.22) 45%, transparent 75%),
+    radial-gradient(
+      ellipse 90% 65% at 50% -5%,
+      rgba(16, 217, 253, 0.38) 0%,
+      rgba(6, 132, 217, 0.22) 45%,
+      transparent 75%
+    ),
     radial-gradient(circle at 50% 20%, #0e3d57 0%, #092739 38%, #051722 70%, #030b11 100%);
   overflow: hidden;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -209,7 +214,7 @@
 }
 
 .dark .editorial-card {
-  background: #061510;
+  background: #04090d;
   border: 1px solid rgba(255, 255, 255, 0.07);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
@@ -221,7 +226,7 @@
 
 /* Luxury Dark Team Card */
 .dark-team-card {
-  background: #061510;
+  background: #04090d;
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 1.5rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);

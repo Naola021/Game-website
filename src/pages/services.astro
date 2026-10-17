@@ -13,7 +13,6 @@ const services = [
     id: 'game-design',
     number: '01',
     title: 'GAMEPLAY DESIGN & CONCEPT',
-    headline: 'Turning ideas into playable, high-retention game blueprints.',
     body: 'We shape mechanics, reward pacing, progression curves, and core loops that keep players invested from session one.',
     deliverables: [
       'Core game loop & mechanics documentation',
@@ -26,7 +25,6 @@ const services = [
     id: 'full-cycle',
     number: '02',
     title: 'FULL-CYCLE GAME ENGINEERING',
-    headline: 'High-performance gameplay engineering across all major platforms.',
     body: 'From initial prototype to final release, our engineers build stable games optimized to run smoothly across target devices.',
     deliverables: [
       'Modern game engine production pipelines',
@@ -39,7 +37,6 @@ const services = [
     id: 'game-art',
     number: '03',
     title: '3D ART, RIGGING & ANIMATION',
-    headline: 'Bespoke visual worlds, stylized characters, and polished VFX.',
     body: 'Our artists create memorable 2D and 3D visual styles that bring game worlds to life with rich color and fluid animation.',
     deliverables: [
       '3D character modeling, rigging & skinning',
@@ -52,7 +49,6 @@ const services = [
     id: 'monetization',
     number: '04',
     title: 'ECONOMY & LEVEL BALANCING',
-    headline: 'Smooth in-game economies that reward player dedication.',
     body: 'We design fair, sustainable economies, battle passes, and non-intrusive cosmetic features that feel rewarding.',
     deliverables: [
       'In-game currency & reward economy balancing',
@@ -65,7 +61,6 @@ const services = [
     id: 'publishing',
     number: '05',
     title: 'MULTI-STORE PUBLISHING & CERTIFICATION',
-    headline: 'Smooth deployment across global app stores and web portals.',
     body: 'We handle store compliance, build certification, and platform requirements so your game reaches players seamlessly.',
     deliverables: [
       'App Store & Google Play compliance & submission',
@@ -78,7 +73,6 @@ const services = [
     id: 'live-ops',
     number: '06',
     title: 'LIVE OPS & CONTENT UPDATES',
-    headline: 'Keeping your game fresh and exciting long after launch.',
     body: 'We deliver continuous updates, seasonal events, and gameplay balance adjustments to keep the community active.',
     deliverables: [
       'Seasonal events & themed content drops',
@@ -127,7 +121,7 @@ const faqs = [
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
       <!-- Sleek Dark Badge -->
       <div
-        class="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#04090d]/60 border border-[#10D9FD]/30 text-white/95 backdrop-blur-md mb-6 shadow-xs"
+        class="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#0A2419] border border-[#10D9FD]/40 text-white/95 backdrop-blur-md mb-6 shadow-md"
       >
         <span>OUR CAPABILITIES</span>
       </div>
@@ -152,30 +146,24 @@ const faqs = [
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
         {
           services.map((service) => (
-            <div
-              id={service.id}
-              class="editorial-card p-6 sm:p-9 space-y-6 flex flex-col justify-between"
-            >
+            <div id={service.id} class="editorial-card p-6 sm:p-9 space-y-6 flex flex-col justify-between">
               <div class="space-y-4">
-                <!-- Card Header -->
+                {/* Card Header */}
                 <div class="flex items-center justify-between">
                   <span class="text-xs font-mono font-bold text-[#0684D9] uppercase tracking-wider">
                     {service.number} // CAPABILITY
                   </span>
                 </div>
 
-                <!-- Service Title & Headline -->
-                <div class="space-y-2">
-                  <h2 class="text-2xl font-black text-slate-900 tracking-tight uppercase">
-                    {service.title}
-                  </h2>
-                  <p class="text-sm font-semibold text-[#0684D9] italic">"{service.headline}"</p>
+                {/* Service Title */}
+                <div>
+                  <h2 class="text-2xl font-black text-slate-900 tracking-tight uppercase">{service.title}</h2>
                 </div>
 
-                <!-- Service Body -->
+                {/* Service Body */}
                 <p class="text-sm text-slate-600 leading-relaxed">{service.body}</p>
 
-                <!-- Key Deliverables List -->
+                {/* Key Deliverables List */}
                 <div class="pt-2 border-t border-slate-200/80 dark:border-white/[0.08] space-y-2.5">
                   <span class="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white block">
                     Key Deliverables
@@ -191,7 +179,7 @@ const faqs = [
                 </div>
               </div>
 
-              <!-- CTA / Inquire Link -->
+              {/* CTA / Inquire Link */}
               <div class="pt-4 border-t border-slate-200/80 dark:border-white/[0.08]">
                 <a
                   href="/contact"
@@ -211,7 +199,7 @@ const faqs = [
   <!-- Dark Luxury General FAQs Guide Section -->
   <section class="py-16 sm:py-24 relative z-10 bg-white border-t border-slate-200/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="rounded-3xl bg-[#0A2419]/85 text-white p-8 sm:p-12 lg:p-16 border border-white/[0.08] shadow-2xl">
+      <div class="rounded-3xl bg-[#04090D] text-white p-8 sm:p-12 lg:p-16 border border-white/[0.08] shadow-2xl">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
           <!-- Left Column -->
           <div class="lg:col-span-5 space-y-4">
@@ -261,16 +249,10 @@ const faqs = [
   </section>
 
   <!-- Closing Studio Banner -->
-  <section
-    class="py-14 sm:py-20 relative z-10 bg-slate-50 border-t border-slate-200/80"
-  >
+  <section class="py-14 sm:py-20 relative z-10 bg-slate-50 border-t border-slate-200/80">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-5">
-      <span class="text-xs font-bold uppercase tracking-widest text-[#0684D9] block">
-        Start A Project
-      </span>
-      <h2 class="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight">
-        Ready to build your game?
-      </h2>
+      <span class="text-xs font-bold uppercase tracking-widest text-[#0684D9] block"> Start A Project </span>
+      <h2 class="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight">Ready to build your game?</h2>
       <p class="text-sm sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
         Let’s bring your game vision to life
       </p>
